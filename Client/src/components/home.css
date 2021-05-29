@@ -1,0 +1,28 @@
+.home {
+    padding: 5rem;
+}
+
+h1 {
+    display: block;
+    width: 100%;
+    max-width: 24rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h3 {
+    display: block;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p {
+    display: block;
+    width: 100%;
+    max-width: 28rem;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 2rem;
+}
