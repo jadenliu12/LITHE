@@ -18,28 +18,28 @@ npm run start
 ## Prototype  
 
 ### Home(Web) page
-![1](/img/1.png)  
+![1](/Img/1.png)  
 
 ### SignIn page
-![2](/img/2.png)
+![2](/Img/2.png)
 
 ### SignUp1 page
-![3](/img/3.png)
+![3](/Img/3.png)
 
 ### SignUp2 page
-![4](/img/4.png)
+![4](/Img/4.png)
 
 ### Home(User) page
-![6](/img/6.png)
+![6](/Img/6.png)
 
 ### Group(Input Cal) page
-![5](/img/5.png)
+![5](/Img/5.png)
 
 ### Group(Search food) page
-![7](/img/7.png)
+![7](/Img/7.png)
 
 ### Group(Main) page
-![8](/img/8.png)
+![8](/Img/8.png)
 
 ### Competition page
-![9](/img/9.png)
+![9](/Img/9.png)
