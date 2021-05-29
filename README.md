@@ -1,11 +1,11 @@
 # LITHE.
 
 ## Project workflow  
-'''
+```
 npm install  
 npm run build  
 npm run start  
-'''
+```
 
 ## Directory
 1. client side: client folder  
