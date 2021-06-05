@@ -1,0 +1,36 @@
+#contact-form {
+    width: 50%;
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.name {
+    display: inline-block;
+    width: 40%;
+}
+
+.email {
+    display: inline-block;
+    width: 60%;
+}
+
+.form-text textarea{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.name input {
+    width: 90%;
+}
+
+.email input {
+    width: 100%;
+}
+
+.btn {
+    float: right;
+}
+
+.contactUs p {
+    text-align: center;
+}

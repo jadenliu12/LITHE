@@ -11,14 +11,13 @@ html, body, #root {
 
 .weather-bg .mask {
     min-height: 100%;
-    /* bac\kground-color: rgba(0, 0, 0, 0.5); */
+    background-color: rgba(0, 0, 0, 0.5);
     transition: all 0.6s;
     padding-top: 1rem;
 }
 
 .weather-bg .mask.masking {
-    /* background-color: #000; */
-    background-color: #F2F1E5;
+    background-color: #000;
 }
 
 .weather-bg.thunderstorm {
