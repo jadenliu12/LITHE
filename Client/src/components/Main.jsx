@@ -13,8 +13,7 @@ import {
 } from 'reactstrap';
 
 import Home from 'components/home.jsx';
-import Features from 'components/features.jsx';
-import ContactUs from 'components/contactUs.jsx';
+import AboutUs from 'components/aboutUs.jsx';
 import SignIn from 'components/signIn.jsx';
 
 import './Main.css';
@@ -48,15 +47,10 @@ export default class Main extends React.Component {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/">
-                      Features
+                    <NavLink tag={Link} to="/about-us">
+                      About Us
                     </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to="/">
-                      Contact Us
-                    </NavLink>
-                  </NavItem>
+                  </NavItem>                  
                   <NavItem>
                     <NavLink tag={Link} to="/sign-in">
                       Sign In
@@ -76,18 +70,11 @@ export default class Main extends React.Component {
           />
           <Route
             exact
-            path="/"
+            path="/about-us"
             render={() => (
-              <Features/>
+              <AboutUs/>
             )}
-          />
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <ContactUs/>
-            )}
-          />
+          />          
           <Route
             exact
             path="/sign-in"

@@ -23,14 +23,18 @@ export default class FeatureItem extends React.Component {
           return (
             <div className="feature-item">
                 <div className="feature">
-                    <div className="icon">
-                        <i class={getFeatureIcon(title)}></i>
+                    <div className="logoContainer">
+                        <div className="icon">
+                            <i class={getFeatureIcon(title)}></i>
+                        </div>
+                        <div className="title">
+                            <h2>{title}</h2>
+                        </div>
                     </div>
-                    <div className="title">
-                        <h2>{title}</h2>
-                    </div>
-                    <div className="desc">
-                        <p>{desc}</p>
+                    <div className="descContainer">
+                        <div className="desc">
+                            <p>{desc}</p>
+                        </div>
                     </div>
                 </div>
             </div>
