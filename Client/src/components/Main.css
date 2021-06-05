@@ -1,0 +1,7 @@
+.main {
+    height: 100%;
+}
+
+.main .text-info {
+    color: rgba(255, 255, 255, 0.7);
+}
