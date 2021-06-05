@@ -48,12 +48,12 @@ export default class Main extends React.Component {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/features">
+                    <NavLink tag={Link} to="/">
                       Features
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/contact-us">
+                    <NavLink tag={Link} to="/">
                       Contact Us
                     </NavLink>
                   </NavItem>
@@ -76,14 +76,14 @@ export default class Main extends React.Component {
           />
           <Route
             exact
-            path="/features"
+            path="/"
             render={() => (
               <Features/>
             )}
           />
           <Route
             exact
-            path="/contact-us"
+            path="/"
             render={() => (
               <ContactUs/>
             )}
@@ -94,8 +94,7 @@ export default class Main extends React.Component {
             render={() => (
               <SignIn/>
             )}
-          />
-          <div className="footer">LITHE.</div>
+          />          
         </div>
       </Router>
     );

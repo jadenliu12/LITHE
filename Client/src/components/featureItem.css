@@ -1,0 +1,25 @@
+.feature-item {
+    width: 20%;
+    max-width: 10rem;
+}
+
+.feature-item .feature .icon {
+    display: flex;
+    background-color: #c2f3ff;
+    border: 1px solid #c2f3ff;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.feature-item .feature .title {
+    text-align: center;
+}
+
+.feature-item .feature .desc {
+    text-align: center
+}

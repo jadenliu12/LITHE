@@ -1,8 +1,11 @@
-.home {
+.top {
     padding: 5rem;
+    text-align: center;
+    height: 100%;
+    width: 100%;
 }
 
-h1 {
+.top h1 {
     display: block;
     width: 100%;
     max-width: 24rem;
@@ -10,7 +13,7 @@ h1 {
     text-align: center;
 }
 
-h3 {
+.top h3 {
     display: block;
     width: 100%;
     max-width: 30rem;
@@ -18,11 +21,16 @@ h3 {
     text-align: center;
 }
 
-p {
+.top p {
     display: block;
     width: 100%;
     max-width: 28rem;
     margin: 0 auto;
     text-align: center;
     padding-top: 2rem;
+}
+
+.top button {    
+    width: 8rem;
+    margin-top: 2rem;
 }
