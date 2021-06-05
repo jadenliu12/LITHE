@@ -1,0 +1,49 @@
+.feature-item {
+    width: 20%;
+    margin: 0 2rem;
+    max-width: 10rem;
+}
+
+.feature-item .feature .logoContainer .icon {
+    display: flex;
+    background-color: #c2f3ff;
+    border: 1px solid #c2f3ff;
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.feature-item .feature .logoContainer .title {
+    text-align: center;
+}
+
+.feature-item .feature .descContainer .desc {
+    text-align: center
+}
+
+@media screen and (max-width: 768px) {
+    .feature-item {
+        width: 100%;
+        max-width: 768px;
+        margin: 4rem 0;
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+    }
+
+    .logoContainer {
+        width: 40%;
+        display: inline-block;
+    }
+
+    .descContainer {
+        width: 60%;
+        display: inline-block;
+    }
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './contactUs.css'
+
 export default class ContactUs extends React.Component {
 
     constructor(props) {
@@ -22,10 +24,20 @@ export default class ContactUs extends React.Component {
 
     render() {
         return (
-            <div className={`aboutUs`}>
-                <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-                    <h1>THIS IS CONTACT US</h1>
-                </div>
+            <div className="contactUs">                
+                <p>Enter your feedbacks here for further help us to improve LITHE.</p>           
+                <form id="contact-form">
+                    <div className="form-group name">                        
+                        <input type="text" placeholder="Name" />
+                    </div>
+                    <div className="form-group email">                        
+                        <input type="email" placeholder="Email" />
+                    </div>
+                    <div className="form-text">                        
+                        <textarea rows="5" placeholder="Enter your feedbacks" />
+                    </div>
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                </form>                
             </div>
         );
     }
