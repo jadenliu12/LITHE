@@ -1,0 +1,10 @@
+
+.sign-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    border-radius: 2%;
+}
