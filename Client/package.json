@@ -33,7 +33,9 @@
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "chart.js": "^3.3.2",
+    "react-chartjs-2": "^3.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
