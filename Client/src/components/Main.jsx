@@ -17,6 +17,8 @@ import Home from 'components/home.jsx';
 import AboutUs from 'components/aboutUs.jsx';
 import Authentication from 'components/authentication.jsx'
 
+import './Main.css';
+
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
