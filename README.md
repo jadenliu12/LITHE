@@ -7,6 +7,19 @@ npm run build
 npm run start  
 ```
 
+## Updating code
+1. clone the repo and checkout to "dev-{name}"
+2. Choose one "To-do" and move it to "In-progress"
+3. Edit code
+4. Run the following command (If you want to update your branch)
+```
+git add -A
+git status (optional, to check what files are added)
+git commit -m "{commit msg}"
+git push origin dev-{name}
+```
+5. If you have done one of the "To-do", move the card to "Done"
+
 ## Directory
 1. client side: client folder  
 - src/api -> implement calls to server  

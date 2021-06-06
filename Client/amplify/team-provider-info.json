@@ -1,0 +1,20 @@
+{
+  "env": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lithe-env-10418-authRole",
+      "UnauthRoleArn": "arn:aws:iam::074310421294:role/amplify-lithe-env-10418-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::074310421294:role/amplify-lithe-env-10418-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-lithe-env-10418-deployment",
+      "UnauthRoleName": "amplify-lithe-env-10418-unauthRole",
+      "StackName": "amplify-lithe-env-10418",
+      "StackId": "arn:aws:cloudformation:us-east-1:074310421294:stack/amplify-lithe-env-10418/14de2cd0-c620-11eb-b23d-0a720c487c5f",
+      "AmplifyAppId": "d3i2c3rdjw1j1r"
+    },
+    "categories": {
+      "auth": {
+        "lithe68ea87c5": {}
+      }
+    }
+  }
+}
