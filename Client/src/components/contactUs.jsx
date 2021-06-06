@@ -1,4 +1,7 @@
 import React from 'react';
+import HorizontalBarChart from 'components/horizontalChart.jsx';
+
+import './contactUs.css';
 
 export default class ContactUs extends React.Component {
 
@@ -22,9 +25,21 @@ export default class ContactUs extends React.Component {
 
     render() {
         return (
-            <div className={`aboutUs`}>
-                <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-                    <h1>THIS IS CONTACT US</h1>
+            <div className="aboutUs">
+                <div className="user" class="d-flex justify-content-center"> 
+                    <div className="userInfo">
+                        <div className="icon"></div>
+                        <div className="userName">Jaden</div>
+                        <div className="userRank">Advanced</div>
+                    </div>  
+                    <div className="addUser">
+                        <div>FRIENDS</div>
+                        <div>1000</div>
+                        <div className="button">Add Friend</div>
+                    </div>
+                </div>
+                <div className="horizontalChart">
+                    <HorizontalBarChart />
                 </div>
             </div>
         );

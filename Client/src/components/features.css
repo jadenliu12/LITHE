@@ -1,0 +1,57 @@
+.features .body {
+    background-color: #F2F1E5;
+}
+
+.features .input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.features .today {
+    text-align: center;
+}
+
+.features .inputRecords {
+    width: 100%;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+}
+
+.features label {
+    display: block;
+    padding-top: 1.5rem;
+}
+
+.features .icon {
+    height: 8rem;
+    width: 8rem;
+    background-color: #9e835a;
+}
+
+.features .userInfo {
+    padding-right: 8rem;
+    text-align: center;
+}
+
+.features .addUser {
+    padding-left: 8rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.features .button {
+    background-color: #7a5f35;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3rem;
+    padding: 5px 200px;
+    cursor: pointer;
+  }

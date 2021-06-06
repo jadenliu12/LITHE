@@ -1,4 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import CalorieBarChart from 'components/calorieChart.jsx';
+import WaterBarChart from 'components/waterChart.jsx';
+import SleepBarChart from 'components/sleepChart.jsx';
+import userInput from 'components/signIn.jsx';
+
+import './features.css';
 
 export default class Features extends React.Component {
 
@@ -7,9 +14,11 @@ export default class Features extends React.Component {
 
         this.state = {            
             loading: true,
-            masking: true
+            masking: true,      
+            calorieToggle: false,    
         };
-        
+
+        this.handleCalorieToggle = this.handleCalorieToggle.bind(this);  
     }
 
     componentDidMount() {
@@ -22,11 +31,58 @@ export default class Features extends React.Component {
 
     render() {
         return (
-            <div className={`features`}>
-                <div className={`mask ${this.state.masking ? 'masking' : ''}`}>
-                    <h1>THIS IS FEATURES</h1>
+            <Router>
+                <div className="features">
+                <div className="input" class="d-flex flex-wrap align-items-center justify-content-center"> 
+                    <div className="userInfo">
+                        <div className="icon"></div>
+                        <div className="userName">Jaden</div>
+                        <div className="userRank">Advanced</div>
+                    </div>  
+                    <div className="inputInfo">
+                        <h3 className="today">YOUR DAILY RECORD</h3>
+                        <div>
+                            <form onClick={this.handleCalorieToggle} >
+                                <label for="calories">Calorie Intake</label>
+                                <div className="inputRecords">0 kcal</div>
+                                <div className="horizontalChart">
+                                    <CalorieBarChart />
+                                </div>
+
+                                <label for="mililiters">Water Intake</label>
+                                <div className="inputRecords">0 ml</div>
+                                <div className="horizontalChart">
+                                    <WaterBarChart />
+                                </div>
+
+                                <label for="hours">Sleeping Duration</label>
+                                <div className="inputRecords">0 hrs</div>
+                                <div className="horizontalChart">
+                                    <SleepBarChart />
+                                </div>
+
+                                <input to="/user-input" className="button" type="submit" value="Input"></input>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+                
+                <Route
+                    exact
+                    path="/user-input"
+                    render={() => (
+                    <userInput/>
+                    )}
+                />
             </div>
+            </Router>
         );
     }
+    
+    handleCalorieToggle() {
+        this.setState((prevState, props) => ({
+        calorieToggle: !prevState.calorieToggle,
+        }));
+    }
 }
+
