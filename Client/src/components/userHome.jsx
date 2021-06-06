@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import CalorieBarChart from 'components/calorieChart.jsx';
 import WaterBarChart from 'components/waterChart.jsx';
 import SleepBarChart from 'components/sleepChart.jsx';
-import userInput from 'components/signIn.jsx';
 
-import './features.css';
+import './userHome.css';
 
-export default class Features extends React.Component {
+export default class UserHome extends React.Component {
 
     constructor(props) {
         super(props);

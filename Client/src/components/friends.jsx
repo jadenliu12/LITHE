@@ -1,9 +1,9 @@
 import React from 'react';
 import HorizontalBarChart from 'components/horizontalChart.jsx';
 
-import './contactUs.css';
+import './friends.css';
 
-export default class ContactUs extends React.Component {
+export default class Friends extends React.Component {
 
     constructor(props) {
         super(props);

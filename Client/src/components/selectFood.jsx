@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Features from 'components/Features.jsx';
 
-import './signIn.css';
+import './selectFood.css';
 
-export default class selectFood extends React.Component {
+export default class SelectFood extends React.Component {
 
     constructor(props) {
         super(props);
