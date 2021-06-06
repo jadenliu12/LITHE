@@ -1,0 +1,21 @@
+.form-container .sign-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 10%;
+    background-color: white;
+    border-radius: 2%;
+}
+
+.form-container .sign-form .btn {
+    width: 100%;
+}
+
+.form-container .sign-form .form-component {
+    margin: 10px 0;
+}
+
+.link {
+    cursor: pointer;
+}

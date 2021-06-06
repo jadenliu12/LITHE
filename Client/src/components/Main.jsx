@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {
@@ -13,9 +14,8 @@ import {
 } from 'reactstrap';
 
 import Home from 'components/home.jsx';
-import Features from 'components/features.jsx';
-import ContactUs from 'components/contactUs.jsx';
-import SignIn from 'components/signIn.jsx';
+import AboutUs from 'components/aboutUs.jsx';
+import Authentication from 'components/authentication.jsx'
 
 import './Main.css';
 
@@ -48,15 +48,10 @@ export default class Main extends React.Component {
                     </NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink tag={Link} to="/features">
-                      Features
+                    <NavLink tag={Link} to="/about-us">
+                      About Us
                     </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to="/contact-us">
-                      Contact Us
-                    </NavLink>
-                  </NavItem>
+                  </NavItem>                  
                   <NavItem>
                     <NavLink tag={Link} to="/sign-in">
                       Sign In
@@ -76,26 +71,18 @@ export default class Main extends React.Component {
           />
           <Route
             exact
-            path="/features"
+            path="/about-us"
             render={() => (
-              <Features/>
+              <AboutUs/>
             )}
-          />
-          <Route
-            exact
-            path="/contact-us"
-            render={() => (
-              <ContactUs/>
-            )}
-          />
+          />          
           <Route
             exact
             path="/sign-in"
             render={() => (
-              <SignIn/>
+              <Authentication/>
             )}
-          />
-          <div className="footer">LITHE.</div>
+          />          
         </div>
       </Router>
     );
