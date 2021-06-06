@@ -1,9 +1,8 @@
+  
 .main {
     height: 100%;
 }
 
-.main .footer {
-    text-align: center;
-    color: gray;
-    padding: 6rem 2rem 2rem 2rem;
+.main .text-info {
+    color: rgba(255, 255, 255, 0.7);
 }
