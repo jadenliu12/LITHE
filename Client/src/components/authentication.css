@@ -19,3 +19,7 @@
 .link {
     cursor: pointer;
 }
+
+.alert{
+    font-size: 0.5rem;
+}
