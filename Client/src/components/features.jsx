@@ -1,43 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import FeatureItem from 'components/featureItem.jsx';
 
-import { getFeatureIcon } from 'utilities/feature.js';
+import './features.css';
 
-import './featureItem.css'
+export default class Features extends React.Component {
 
-export default class FeatureItem extends React.Component {
-    static propTypes = {
-        title: PropTypes.string,
-        desc: PropTypes.string,
-      };    
-
-      constructor(props) {
+    constructor(props) {
         super(props);
 
-        this.state = {};
-      }      
+        this.state = {            
+            loading: true,
+            masking: true
+        };
+    }
 
-      render() {
-          const {title, desc} = this.props;
+    componentDidMount() {
+        console.log('Mount Features');
+    }
 
-          return (
-            <div className="feature-item">
-                <div className="feature">
-                    <div className="logoContainer">
-                        <div className="icon">
-                            <i className={getFeatureIcon(title)}></i>
-                        </div>
-                        <div className="title">
-                            <h2>{title}</h2>
-                        </div>
-                    </div>
-                    <div className="descContainer">
-                        <div className="desc">
-                            <p>{desc}</p>
-                        </div>
-                    </div>
-                </div>
+    componentWillUnmount() {
+        console.log('Unmount Features')
+    }
+
+    render() {
+        return (
+            <div className="features">                
+                <FeatureItem className="f-item" title="Set Up" desc="Enter basic information for us to generate your personalized avatar and set a suitable target for you"/>
+                <FeatureItem className="f-item" title="Connect" desc="Connect with family, friends, or even strangers who meet the same target as you"/>
+                <FeatureItem className="f-item" title="Keep Track" desc="Take good care of your avatar by constantly recording your daily calorie and water intake, and also your sleeping schedule"/>
+                <FeatureItem className="f-item" title="Compete" desc="Participate in our built-in games to know your weekly summary, and to track both yours and your friend's progress"/>
+                <FeatureItem className="f-item" title="Earn Points" desc="Earn points once you have reached your target or when you win in a competition against your friend"/>
             </div>
-          );
-      }
+        );
+    }
 }
