@@ -1,14 +1,15 @@
-.webHome {
+.calendar {
     width: 100%;
     height: 100%;
 }
 
-.top {
-    padding: 5rem;
-    text-align: center;
+.calendar .heatmap{
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
 }
 
-.top h1 {
+.calendar h1 {
     display: block;
     width: 100%;
     max-width: 24rem;
@@ -16,30 +17,67 @@
     text-align: center;
 }
 
-.top h3 {
+.calendar h5 {
     display: block;
     width: 100%;
     max-width: 30rem;
     margin: 0 auto;
     text-align: center;
+    padding-bottom: 2rem;
 }
 
-.top p {
+.calendar p {
     display: block;
     width: 100%;
-    max-width: 28rem;
+    max-width: 30rem;
     margin: 0 auto;
     text-align: center;
-    padding-top: 2rem;
+    padding-bottom: 1rem;
 }
 
-.top button {    
-    width: 8rem;
-    margin-top: 2rem;
-    background-color: #c2f3ff;
-    border: 1px solid #ffffff;
+.calendar .colors {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
-.middle {
-    padding: 5rem;
+.calendar .color0 {
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #ededed;
+    margin-right: 0.3rem;
+    margin-left: 1rem;
+}
+
+.calendar .color1 {
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #acd5f2;
+    margin-right: 0.3rem;
+    margin-left: 1rem;
+}
+
+.calendar .color2 {
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #7fa8d1;
+    margin-right: 0.3rem;
+    margin-left: 1rem;
+}
+
+.calendar .color3 {
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #49729b;
+    margin-right: 0.3rem;
+    margin-left: 1rem;
+}
+
+.calendar .color4 {
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: #254e77;
+    margin-right: 0.3rem;
+    margin-left: 1rem;
 }
