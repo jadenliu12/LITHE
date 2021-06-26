@@ -1,5 +1,5 @@
-  
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {
   Collapse,
@@ -12,22 +12,32 @@ import {
   Input,
   Button,
 } from 'reactstrap';
+import {connect} from 'react-redux';
 
 import Home from 'components/home.jsx';
 import AboutUs from 'components/aboutUs.jsx';
 import Authentication from 'components/authentication.jsx'
+import UserHome from 'components/userHome.jsx';
+import {toggleNavbar} from 'states/main-actions.js';
+
+import { Auth } from 'aws-amplify';
 
 import './Main.css';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
+  static propTypes = {        
+    navbarToggle: PropTypes.bool,
+    username: PropTypes.string,
+    status: PropTypes.bool,
+    store: PropTypes.object,
+    dispatch: PropTypes.func
+  };
+
   constructor(props) {
-    super(props);
+    super(props);  
 
-    this.state = {      
-      navbarToggle: false,      
-    };    
-
-    this.handleNavbarToggle = this.handleNavbarToggle.bind(this);        
+    this.handleNavbarToggle = this.handleNavbarToggle.bind(this);      
+    this.signOut = this.signOut.bind(this);
   }
 
   render() {
@@ -40,25 +50,58 @@ export default class Main extends React.Component {
               <NavbarBrand className="text-info" href="/">
                 LITHE
               </NavbarBrand>
-              <Collapse className="justify-content-end" isOpen={this.state.navbarToggle} navbar>
+              <Collapse className={this.props.status ? "" : "justify-content-end"} isOpen={this.props.navbarToggle} navbar>       
                 <Nav navbar>
-                  <NavItem>
-                    <NavLink tag={Link} to="/">
-                      Home
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink tag={Link} to="/about-us">
-                      About Us
-                    </NavLink>
-                  </NavItem>                  
-                  <NavItem>
-                    <NavLink tag={Link} to="/sign-in">
-                      Sign In
-                    </NavLink>
-                  </NavItem>                                    
-                </Nav>
+                  {
+                    !this.props.status &&
+                    <div className="navbar">
+                      <NavItem>
+                        <NavLink tag={Link} to="/">
+                          Home
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink tag={Link} to="/about-us">
+                          About Us
+                        </NavLink>
+                      </NavItem>                  
+                      <NavItem>
+                        <NavLink tag={Link} to="/sign-in">
+                          Sign In
+                        </NavLink>
+                      </NavItem>
+                    </div>
+                  } 
+                  {
+                    this.props.status &&
+                    <div className="navbar"> 
+                      <NavItem>
+                        <NavLink tag={Link} to="/user-home">
+                          Home
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink tag={Link} to="/about-us">
+                          Group
+                        </NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink tag={Link} to="/about-us">
+                          Statistics
+                        </NavLink>
+                      </NavItem>                                        
+                    </div>
+                  } 
+                </Nav>                          
               </Collapse>
+              {
+                this.props.status &&
+                <div className="signOutButton">
+                  <Button variant="secondary" onClick={this.signOut}>
+                    Sign Out
+                  </Button>
+                </div>
+              }
             </Navbar>
           </div>
 
@@ -82,15 +125,34 @@ export default class Main extends React.Component {
             render={() => (
               <Authentication/>
             )}
-          />          
+          />
+          <Route
+            exact
+            path="/user-home"
+            render={() => (
+              <UserHome/>
+            )}
+          />                    
         </div>
       </Router>
     );
   }
 
-  handleNavbarToggle() {
-    this.setState((prevState, props) => ({
-      navbarToggle: !prevState.navbarToggle,
-    }));
+  handleNavbarToggle() {    
+    this.props.dispatch(toggleNavbar());
+  }
+
+  signOut() {
+    Auth.signOut()
+    .then(
+      window.location.reload());
+      window.location.href = '/';
+    ;
   }
 }
+
+export default connect(state => ({
+  ...state.main,
+  username: state.auth.username,
+  status: state.auth.status
+}))(Main);
