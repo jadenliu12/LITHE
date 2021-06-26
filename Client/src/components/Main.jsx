@@ -18,6 +18,8 @@ import Home from 'components/home.jsx';
 import AboutUs from 'components/aboutUs.jsx';
 import Authentication from 'components/authentication.jsx'
 import UserHome from 'components/userHome.jsx';
+import Statistics from 'components/statistics.jsx';
+import Group from 'components/group.jsx'
 import {toggleNavbar} from 'states/main-actions.js';
 
 import { Auth } from 'aws-amplify';
@@ -81,12 +83,12 @@ class Main extends React.Component {
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink tag={Link} to="/about-us">
+                        <NavLink tag={Link} to="/group">
                           Group
                         </NavLink>
                       </NavItem>
                       <NavItem>
-                        <NavLink tag={Link} to="/about-us">
+                        <NavLink tag={Link} to="/statistics">
                           Statistics
                         </NavLink>
                       </NavItem>                                        
@@ -132,7 +134,21 @@ class Main extends React.Component {
             render={() => (
               <UserHome/>
             )}
-          />                    
+          /> 
+          <Route
+            exact
+            path="/group"
+            render={() => (
+              <Group/>
+            )}
+          /> 
+          <Route
+            exact
+            path="/statistics"
+            render={() => (
+              <Statistics/>
+            )}
+          />                                        
         </div>
       </Router>
     );
