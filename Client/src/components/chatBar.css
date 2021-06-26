@@ -1,0 +1,12 @@
+.chatWindow {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 5rem;
+    height: 10rem;
+    width: 15rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    background-color: lightblue;
+}
