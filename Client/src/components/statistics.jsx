@@ -1,7 +1,7 @@
 import React from 'react';
 import CalendarHeatMap from 'components/calendarHeatmap.jsx';
 
-import './home.css';
+import './statistics.css';
 
 export default class Statistics extends React.Component {
 
