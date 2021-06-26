@@ -1,7 +1,7 @@
 import React from 'react';
 import ContactUs from 'components/contactUs.jsx'
 
-import './aboutUs.css';
+import './group.css';
 
 export default class Group extends React.Component {
 
