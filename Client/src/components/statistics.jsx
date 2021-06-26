@@ -3,7 +3,7 @@ import CalendarHeatMap from 'components/calendarHeatmap.jsx';
 
 import './home.css';
 
-export default class Home extends React.Component {
+export default class Statistics extends React.Component {
 
     constructor(props) {
         super(props);
