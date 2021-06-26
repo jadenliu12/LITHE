@@ -1,0 +1,44 @@
+.aboutUs {
+    width: 100%;
+    height: 100%;
+}
+
+.aboutUs h1 {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+.aboutUs .row {
+    justify-content: center;
+}
+
+.aboutUs .row > div {
+    background-color: lightblue;
+    max-width: 11rem;
+    height: 15rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: grid;
+    align-items: center;
+}
+
+.aboutUs .row > p {
+    max-width: 11rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+}
+
+.aboutUs .users {
+justify-content: center;
+}
+
+.aboutUs i{
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}

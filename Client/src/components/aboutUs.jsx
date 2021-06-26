@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import ContactUs from 'components/contactUs.jsx'
 
@@ -26,36 +27,14 @@ export default class AboutUs extends React.Component {
     render() {
         return (
             <div className="aboutUs">
-                <h1>My Group</h1>
-                <div className="users">
-                    <div className="datas">
-                        <div className="row">
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                        </div>
-                        <div className="row">
-                            <p className="col-sm">user1</p>
-                            <p className="col-sm">user2</p>
-                            <p className="col-sm">user3</p>
-                            <p className="col-sm">user4</p>
-                        </div>
-                        <div className="row">
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                        </div>
-                        
-                        <div className="row">
-                            <p className="col-sm">user5</p>
-                            <p className="col-sm">user6</p>
-                            <p className="col-sm">user7</p>
-                            <p className="col-sm">user8</p>
-                        </div>
-                    </div>
+                <div className="top">                
+                    <div className="img">
+                        <h3>TEAM PHOTO</h3>
+                    </div>                             
                 </div>
+                <div className="middle">
+                    <ContactUs/>
+                </div>              
             </div>        
         );
     }

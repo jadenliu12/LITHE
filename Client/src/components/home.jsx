@@ -1,5 +1,5 @@
 import React from 'react';
-import CalendarHeatMap from 'components/calendarHeatmap.jsx';
+import Features from 'components/features.jsx'
 
 import './home.css';
 
@@ -12,6 +12,7 @@ export default class Home extends React.Component {
             loading: false,
             masking: false
         };
+        
     }
 
     componentDidMount() {
@@ -24,25 +25,16 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div className="calendar">
-                <h1>Statistics</h1>
-                <h5>150 days</h5>
-                <div className="heatmap"><CalendarHeatMap /></div>
-                <div className="colorIndicator">
-                    <p>Target Indicators</p>
-                    <div className="colors">
-                        <inline className="color0"></inline>
-                        <inline>0% - 20%</inline>
-                        <inline className="color1"></inline>
-                        <inline>21% - 40%</inline>
-                        <inline className="color2"></inline>
-                        <inline>41% - 60%</inline>
-                        <inline className="color3"></inline>
-                        <inline>61% - 80%</inline>
-                        <inline className="color4"></inline>
-                        <inline>81% - 100%</inline>
-                    </div>
+            <div className="webHome">
+                <div className="top">                
+                    <h1>LITHE</h1>
+                    <h3>Goals are met, friends are made.</h3>
+                    <p>Meet friends with the same goal along your journey in maintaining a healthy diet. Compete, Share, and Motivate each other along the way.</p>      
+                    <button>Start</button>                              
                 </div>
+                <div className="middle">
+                    <Features/>
+                </div>              
             </div>        
         );
     }
