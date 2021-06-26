@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes, { bool } from 'prop-types';
 import { 
     Button,
     Form,
@@ -6,25 +7,37 @@ import {
     Label,
     Input
 } from "reactstrap";
+import {connect} from 'react-redux';
 
-import { Auth, Hub } from 'aws-amplify';
+import UserHome from 'components/userHome.jsx';
+import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot} from 'states/auth-actions.js';
+import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPassword, updateWarningEmail, updateWarningMessage} from 'states/auth-actions.js';
+
+import { Auth } from 'aws-amplify';
 
 import './authentication.css';
 
-export default class Authentication extends React.Component {
+class Authentication extends React.Component {
+    static propTypes = {    
+        username: PropTypes.string,
+        password: PropTypes.string,
+        confirmPassword: PropTypes.string,
+        newPassword: PropTypes.string,
+        email: PropTypes.string,
+        authCode: PropTypes.string,
+        formType: PropTypes.string,
+        status: PropTypes.bool,       
+        warningUsername: PropTypes.bool,
+        warningEmail: PropTypes.number,
+        warningPassword: PropTypes.bool,
+        warningConfirmPassword: PropTypes.bool,
+        warningMessage: PropTypes.string,
+        store: PropTypes.object,
+        dispatch: PropTypes.func
+      };    
 
     constructor(props) {
-        super(props);
-
-        this.state = {                                    
-            username: '',
-            password: '',
-            newPassword: '',
-            email: '',
-            authCode: '',
-            formType: 'signIn',
-            status: false
-        };        
+        super(props);      
 
         this.onChange = this.onChange.bind(this);        
 
@@ -40,7 +53,6 @@ export default class Authentication extends React.Component {
 
         this.signUp = this.signUp.bind(this);        
         this.signIn = this.signIn.bind(this);
-        this.signOut = this.signOut.bind(this);
         this.checkUser = this.checkUser.bind(this);
     }  
     
@@ -56,20 +68,24 @@ export default class Authentication extends React.Component {
         return (
             <div className="auth-container">
                 {
-                    this.state.formType === 'signIn' && (
+                    this.props.formType === 'signIn' && (
                         <div className="form-container">
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
                                 <h3 className="text-center">Welcome</h3>
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>
-                                    <Input name="username" onChange={this.onChange} placeholder="username" />
+                                    <Input name="username" onChange={e => this.onChange(e)} placeholder="username" />
                                 </FormGroup>
 
                                 <FormGroup className="form-component">
                                     <Label>Password:</Label>
-                                    <Input name="password" type="password" onChange={this.onChange} placeholder="password" />                            
+                                    <Input name="password" type="password" onChange={e => this.onChange(e)} placeholder="password" />                            
                                 </FormGroup>
+                                {
+                                    this.props.warningMessage !== "" && 
+                                    <div className="form-component alert alert-danger p-0 px-2">{this.props.warningMessage}</div>
+                                }                                
                                 <Button className="btn form-component" onClick={this.signIn}>Next</Button>
 
                                 <div className="form-component">
@@ -85,18 +101,18 @@ export default class Authentication extends React.Component {
                     )
                 }                 
                 {
-                    this.state.formType === 'forgot' && (
+                    this.props.formType === 'forgot' && (
                         <div className="form-container">
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>
-                                    <Input name="username" onChange={this.onChange} placeholder="username" />
+                                    <Input name="username" onChange={e => this.onChange(e)} placeholder="username" />
                                 </FormGroup>
 
                                 <FormGroup className="form-component">
                                     <Label>New password:</Label>
-                                    <Input name="newPassword" type="password" onChange={this.onChange} placeholder="password" />
+                                    <Input name="newPassword" type="password" onChange={e => this.onChange(e)} placeholder="password" />
                                 </FormGroup>
 
                                 <Button className="btn btn-secondary btn-lg btn-block form-component" onClick={this.forgotPassword}>Next</Button>                                                                
@@ -105,13 +121,13 @@ export default class Authentication extends React.Component {
                     )
                 }   
                 {
-                    this.state.formType === 'confirmForgot' && (
+                    this.props.formType === 'confirmForgot' && (
                         <div className="form-container">    
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
                                 <FormGroup className="form-component">
                                     <Label>Confirmation code:</Label>
-                                    <Input name="authCode" onChange={this.onChange} placeholder="confirmation code" />
+                                    <Input name="authCode" onChange={e => this.onChange(e)} placeholder="confirmation code" />
                                 </FormGroup>
 
                                 <Button className="btn btn-secondary btn-lg btn-block form-component" onClick={this.confirmForgot}>Complete Forgot Password</Button>   
@@ -126,24 +142,53 @@ export default class Authentication extends React.Component {
                     )
                 }                             
                 {
-                    this.state.formType === 'signUp' && (
+                    this.props.formType === 'signUp' && (
                         <div className="form-container">
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>
-                                    <Input name="username" onChange={this.onChange} placeholder="username" />
+                                    <Input name="username" onChange={e => this.onChange(e)} placeholder="username" className={this.props.warningUsername ? 'border border-danger' : ''} />
+                                    {
+                                        this.props.warningUsername && 
+                                        <div className="form-component alert alert-danger p-0 px-2 ">Username has already taken! Please change it!</div>
+                                    }                                     
                                 </FormGroup>
 
                                 <FormGroup className="form-component">
                                     <Label>Email:</Label>
-                                    <Input name="email" onChange={this.onChange} placeholder="email" />
+                                    <Input name="email" onChange={e => this.onChange(e)} placeholder="email" className={this.props.warningEmail ? 'border border-danger' : ''} />
+                                    {
+                                        this.props.warningEmail === 1 && 
+                                        <div className="form-component alert alert-danger p-0 px-2 ">Not allowed to use your email identity.</div>
+                                    }
+                                    {
+                                        this.props.warningEmail === 2 && 
+                                        <div className="form-component alert alert-danger p-0 px-2 ">Invalid email address format.</div>
+                                    }
                                 </FormGroup>
 
                                 <FormGroup className="form-component">
                                     <Label>Password:</Label>
-                                    <Input name="password" type="password" onChange={this.onChange} placeholder="password" />
+                                    <Input name="password" type="password" onChange={e => this.onChange(e)} placeholder="password"
+                                        minLength="6"
+                                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$"
+                                        className={this.props.warningPassword ? 'border border-danger' : ''}
+                                    />
+                                    {
+                                        this.props.warningPassword &&
+                                        <div className="form-component alert alert-danger p-0 px-2">Password format is wrong.</div>
+                                    }
                                 </FormGroup>
+
+                                <FormGroup className="form-component">
+                                    <Label>Confirm Password:</Label>
+                                    <Input name="confirmPassword" type="password" onChange={this.onChange} placeholder="confirm password" className={this.props.warningConfirmPassword ? 'border border-danger' : ''}/>
+                                    {
+                                        this.props.warningConfirmPassword &&
+                                        <div className="form-component alert alert-danger p-0 px-2">Please make sure your password match</div>
+                                    }
+                                </FormGroup>                                
 
                                 <Button className="btn btn-secondary btn-lg btn-block form-component" onClick={this.signUp}>Next</Button>     
 
@@ -157,13 +202,13 @@ export default class Authentication extends React.Component {
                     )
                 }
                 {
-                    this.state.formType === 'confirmSignUp' && (
+                    this.props.formType === 'confirmSignUp' && (
                         <div className="form-container">    
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
                                 <FormGroup className="form-component">
                                     <Label>Confirmation code:</Label>
-                                    <Input name="authCode" onChange={this.onChange} placeholder="confirmation code" />
+                                    <Input name="authCode" onChange={e => this.onChange(e)} placeholder="confirmation code" />
                                 </FormGroup>
 
                                 <Button className="btn btn-secondary btn-lg btn-block form-component" onClick={this.confirmSignUp}>Complete Sign Up</Button>   
@@ -178,10 +223,9 @@ export default class Authentication extends React.Component {
                     )
                 }                    
                 {
-                    this.state.formType === 'signedIn' && (
+                    this.props.formType === 'signedIn' && (
                         <div className="form-container">
-                            <h1>HELLO WORLD!</h1>
-                            <button onClick={this.signOut}>Sign Out</button>
+                            <UserHome />                            
                         </div>
                     )
                 }                             
@@ -191,58 +235,128 @@ export default class Authentication extends React.Component {
 
     onChange(e) {
         e.persist();
-        this.setState({[e.target.name]: e.target.value})
+        this.props.dispatch(onChange(e.target));        
+
+        if (e.target.name === "username") {            
+            this.props.dispatch(updateWarningUsername(false));
+            this.props.dispatch(updateWarningMessage(""));
+        }        
+        if (e.target.name === "confirmPassword") {            
+            if (e.target.value ===  this.props.password) {
+                this.props.dispatch(updateWarningConfirmPassword(false));
+            }
+        }
+        if (e.target.name === "email") {
+            let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        
+            if ( re.test(e.target.value) ) {                
+                this.props.dispatch(updateWarningEmail(0));
+            }
+            else {                
+                this.props.dispatch(updateWarningEmail(1));
+            }
+        }        
     }
 
-    checkUser() {
+    checkUser() {          
         Auth.currentAuthenticatedUser()
-            .then(user => this.setState({email: user.attributes.email ,username: user.username, formType: "signedIn"}))
-            .catch(user => this.setState({formType: "signIn"}));
+            .then(user =>  this.props.dispatch(checkUser(user.attributes.email, user.email)))
+            .catch(user => this.props.dispatch(signIn()));
     }
 
     connectSignIn() {
-        this.setState({formType: "signIn"});
+        this.props.dispatch(signIn());
     }
 
     connectSignUp() {
-        this.setState({formType: "signUp"});
+        this.props.dispatch(signUp());
     }
 
     connectForgot() {
-        this.setState({formType: "forgot"});
+        this.props.dispatch(forgotPassword());
     }
 
-    resendCode() {
-        const { username } = this.state;
-        Auth.resendSignUp(username).then(console.log("resend code succesful"));
+    resendCode() {        
+        Auth.resendSignUp(this.props.username).then(console.log("resend code succesful"));
     }
 
-    forgotPassword() {
-        const { username } = this.state;
-        Auth.forgotPassword(username).then(this.setState({formType: "confirmForgot"}));
+    forgotPassword() {        
+        Auth.forgotPassword(this.props.username).then(this.props.dispatch(confirmForgot()));
     }
 
-    confirmForgot() {
-        const { username, authCode, newPassword } = this.state;
-        Auth.forgotPasswordSubmit(username, authCode, newPassword).then(this.setState({formType: "signIn"}));
+    confirmForgot() {        
+        Auth.forgotPasswordSubmit(this.props.username, this.props.authCode, this.props.newPassword).then(this.props.dispatch(signIn()));
     }
 
-    confirmSignUp() {
-        const { username, authCode } = this.state;
-        Auth.confirmSignUp(username, authCode).then(this.setState({formType: "signIn"}));        
+    confirmSignUp() {        
+        Auth.confirmSignUp(this.props.username, this.props.authCode).then(this.props.dispatch(signIn()));        
     }    
 
     signUp() {
-        const { username, email, password } = this.state;
-        Auth.signUp({ username, password, attributes: { email } }).then(this.setState({formType: "confirmSignUp"}));
+        const username = this.props.username, password = this.props.password, email = this.props.email, confirmPassword = this.props.confirmPassword;
+        
+        if (username !== "") {
+            this.props.dispatch(updateWarningUsername(true));
+        }
+        if (password === confirmPassword ) {
+            Auth.signUp({ 
+                username,
+                password, 
+                attributes: { email } 
+            })
+            .catch(error => {
+                if (error['code'] === "UsernameExistsException") {
+                    this.props.dispatch(updateWarningUsername(true));
+                }
+                else if(error['code'] === "InvalidPasswordException") {
+                    this.props.dispatch(updateWarningPassword(true));
+                }
+                else if(error['code'] === "InvalidEmailRoleAccessPolicyException") {
+                    this.props.dispatch(updateWarningEmail(1));
+                }
+                else if(error["message"] === "Invalid email address format.") {
+                    this.props.dispatch(updateWarningEmail(2));
+                }
+            })
+            .then(fulfilled => {
+                if (fulfilled !== undefined) {
+                    console.log(fulfilled)
+                    this.props.dispatch(confirmSignUp())
+                }
+            });
+        }
+        else {
+            this.props.dispatch(updateWarningPassword(true));
+        }        
     }    
 
-    signIn() {
-        const { username, password } = this.state;
-        Auth.signIn(username, password).then(this.setState({formType: "signedIn"}));        
-    }
-
-    signOut() {
-        Auth.signOut().then(window.location.reload());
+    signIn() {    
+        Auth.signIn(this.props.username, this.props.password)
+        .then(fulfilled => {
+            console.log("fulfilled:");
+            console.log(fulfilled);
+            this.props.dispatch(signedIn());
+        })
+        .catch(error => {
+            this.props.dispatch(updateWarningUsername(true));
+            if (error["code"] === "UserNotFoundException") {
+                this.props.dispatch(updateWarningMessage("User does not exist."));
+            }
+            else if (error["code"] === "NotAuthorizedException") {
+                this.props.dispatch(updateWarningMessage("Incorrect username or password."));
+            }
+            else if (error['code'] === "UserNotConfirmedException") {
+                this.props.dispatch(updateWarningMessage("User is not confirmed."));  
+                this.props.dispatch(confirmSignUp());
+            }
+            else if (error['code'] === "PasswordResetRequiredException") {                
+                this.props.dispatch(updateWarningMessage("a password reset is required."));
+            }
+        });        
     }
 }
+
+export default connect(state => ({
+    ...state.auth,
+    ...state.authWarn,
+}))(Authentication);
