@@ -32,7 +32,7 @@ export default class UserHome extends React.Component {
         return (
             <Router>
                 <div className="features">
-                <div className="input" class="d-flex flex-wrap align-items-center justify-content-center"> 
+                <div className="input d-flex flex-wrap align-items-center justify-content-center"> 
                     <div className="userInfo">
                         <div className="icon"></div>
                         <div className="userName">Jaden</div>
@@ -42,19 +42,19 @@ export default class UserHome extends React.Component {
                         <h3 className="today">YOUR DAILY RECORD</h3>
                         <div>
                             <form onClick={this.handleCalorieToggle} >
-                                <label for="calories">Calorie Intake</label>
+                                <label htmlFor="calories">Calorie Intake</label>
                                 <div className="inputRecords">0 kcal</div>
                                 <div className="horizontalChart">
                                     <CalorieBarChart />
                                 </div>
 
-                                <label for="mililiters">Water Intake</label>
+                                <label htmlFor="mililiters">Water Intake</label>
                                 <div className="inputRecords">0 ml</div>
                                 <div className="horizontalChart">
                                     <WaterBarChart />
                                 </div>
 
-                                <label for="hours">Sleeping Duration</label>
+                                <label htmlFor="hours">Sleeping Duration</label>
                                 <div className="inputRecords">0 hrs</div>
                                 <div className="horizontalChart">
                                     <SleepBarChart />
