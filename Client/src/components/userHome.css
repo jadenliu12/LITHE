@@ -1,48 +1,58 @@
-.features .body {
+.userHome .body {
     background-color: #F2F1E5;
 }
 
-.features .input {
+.userHome .input {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.features .today {
+.userHome .today {
     text-align: center;
 }
 
-.features .inputRecords {
-    width: 100%;
+.userHome .inputRecords {
+    display: inline-block;
+    width: 80%;
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
     box-sizing: border-box;
 }
 
-.features label {
+.userHome .unitChoices {
+    display: inline-block;
+    margin-left: 2%;
+    width: 18%;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+}
+
+.userHome label {
     display: block;
     padding-top: 1.5rem;
 }
 
-.features .icon {
+.userHome .icon {
     height: 8rem;
     width: 8rem;
     background-color: #9e835a;
 }
 
-.features .userInfo {
+.userHome .userInfo {
     padding-right: 8rem;
     text-align: center;
 }
 
-.features .addUser {
+.userHome .addUser {
     padding-left: 8rem;
     text-align: center;
     line-height: 2rem;
 }
 
-.features .button {
+.userHome .button {
     background-color: #7a5f35;
     border: none;
     border-radius: 0.5rem;
