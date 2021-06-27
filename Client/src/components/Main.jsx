@@ -48,6 +48,7 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.checkUser();
+    console.log(this.props.status);
   }   
 
   render() {
