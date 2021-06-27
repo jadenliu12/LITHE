@@ -2,7 +2,7 @@ const express = require('express');
 
 const userRouter = require('./routers/users.js');
 const requestLogger = require('./middleware/request-logger.js');
-const accessController = require('./middleware/accessController');
+const accessController = require('./middleware/access-controller.js');
 const errorHandler = require('./middleware/error-handler.js');
 
 const app = express();
