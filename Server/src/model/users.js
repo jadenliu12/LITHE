@@ -24,5 +24,6 @@ function create(username, email) {
 }
 
 module.exports = {
+  list,
   create,
 };

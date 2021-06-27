@@ -10,7 +10,7 @@ router.use(express.json());
 
 // List
 router.get('/users', function (req, res, next) {
-  postModel
+  userModel
     .list()
     .then((users) => {
       res.json(users);
