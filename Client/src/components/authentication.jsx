@@ -13,6 +13,8 @@ import UserHome from 'components/userHome.jsx';
 import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot} from 'states/auth-actions.js';
 import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPassword, updateWarningEmail, updateWarningMessage} from 'states/auth-actions.js';
 
+import {createUser} from 'api/user.js';
+
 import { Auth } from 'aws-amplify';
 
 import './authentication.css';
@@ -260,7 +262,10 @@ class Authentication extends React.Component {
 
     checkUser() {          
         Auth.currentAuthenticatedUser()
-            .then(user =>  this.props.dispatch(checkUser(user.attributes.email, user.email)))
+            .then((user) => {  
+                this.props.dispatch(checkUser(user.attributes.email, user.email));
+                console.log(user);
+            })
             .catch(user => this.props.dispatch(signIn()));
     }
 
