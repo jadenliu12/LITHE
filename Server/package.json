@@ -1,7 +1,7 @@
 {
-    "name": "weathermood-server",
+    "name": "lithe-server",
     "version": "1.0.0",
-    "description": "WeatherMood server.",
+    "description": "lithe server.",
     "main": "src/server.js",
     "scripts": {
         "start": "node src/server.js",

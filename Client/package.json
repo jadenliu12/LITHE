@@ -1,7 +1,7 @@
 {
-  "name": "lab-react-weathermood",
+  "name": "lithe",
   "version": "1.0.0",
-  "description": "WeatherMood allows people to share moods under different weather conditions.",
+  "description": "lithe is a group diet website",
   "main": "src/index.jsx",
   "scripts": {
     "build": "webpack --mode=production",
