@@ -43,19 +43,19 @@ export default class UserHome extends React.Component {
                         <div>
                             <form onClick={this.handleCalorieToggle} >
                                 <label htmlFor="calories">Calorie Intake</label>
-                                <div className="inputRecords">0 kcal</div>
+                                <input className="inputRecords" type="text" />
                                 <div className="horizontalChart">
                                     <CalorieBarChart />
                                 </div>
 
                                 <label htmlFor="mililiters">Water Intake</label>
-                                <div className="inputRecords">0 ml</div>
+                                <input className="inputRecords" />
                                 <div className="horizontalChart">
                                     <WaterBarChart />
                                 </div>
 
                                 <label htmlFor="hours">Sleeping Duration</label>
-                                <div className="inputRecords">0 hrs</div>
+                                <input className="inputRecords" />
                                 <div className="horizontalChart">
                                     <SleepBarChart />
                                 </div>
@@ -83,5 +83,9 @@ export default class UserHome extends React.Component {
         calorieToggle: !prevState.calorieToggle,
         }));
     }
+
+    // inputCal() {
+
+    // }
 }
 

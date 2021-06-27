@@ -20,6 +20,8 @@ import Authentication from 'components/authentication.jsx'
 import UserHome from 'components/userHome.jsx';
 import Statistics from 'components/statistics.jsx';
 import Group from 'components/group.jsx'
+import AvatarGenerator from 'components/generateAvatar.jsx'
+import SetBody from 'components/setBody.jsx'
 import {toggleNavbar} from 'states/main-actions.js';
 
 import { Auth } from 'aws-amplify';
@@ -111,14 +113,14 @@ class Main extends React.Component {
             exact
             path="/"
             render={() => (
-              <Home/>
+              <AvatarGenerator/>
             )}
           />
           <Route
             exact
             path="/about-us"
             render={() => (
-              <AboutUs/>
+              <SetBody/>
             )}
           />          
           <Route

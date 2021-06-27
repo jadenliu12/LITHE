@@ -7,6 +7,8 @@ import {Provider} from 'react-redux';
 import Main from 'components/Main.jsx';
 import {auth, authWarn} from 'states/auth-reducers.js';
 import {main} from 'states/main-reducers.js';
+import {avatar} from 'states/avatar-reducer.js';
+import {setBody} from 'states/setbody-reducer.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -19,6 +21,8 @@ window.onload = function () {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(combineReducers({
     auth, authWarn,
+    avatar,
+    setBody,
     main,
   }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 

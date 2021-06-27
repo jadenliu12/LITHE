@@ -1,0 +1,99 @@
+.generateBody {
+    justify-content: center;
+    text-align: center;
+    grid-gap: 2rem;
+}
+
+.generateBody .canvas {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    width: 30rem;
+    height: 35rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    object-fit: fill;
+    background-color: #49C3C8;
+    border: solid;
+    border-color: black;
+    border-width: 5px;
+}
+
+.generateBody .hair {
+    margin-left: 7rem;
+    margin-right: auto;
+    position: absolute;
+    max-width: 250px;
+    object-fit: cover;
+}
+
+.generateBody .eye {
+    margin-left: 205px;
+    margin-right: auto;
+    margin-top: 100px;
+    max-width: 70px;
+    position: absolute;
+}
+
+.generateBody .nose {
+    margin-left: 230px;
+    margin-right: auto;
+    margin-top: 130px;
+    max-width: 20px;
+    position: absolute;
+}
+
+.generateBody .mouth {
+    margin-left: 210px;
+    margin-right: auto;
+    margin-top: 135px;
+    max-width: 65px;
+    position: absolute;
+}
+
+.generateBody .body {
+    margin-left: 165px;
+    margin-right: auto;
+    margin-top: 173px;
+    max-width: 150px;
+    position: absolute;
+}
+
+.generateBody .userName {
+    margin-left: 200px;
+    margin-right: auto;
+    margin-top: 350px;
+    font-size: 1.5rem;
+    position: absolute;
+}
+
+.generateBody .inputWeight {
+    margin: 1rem;
+}
+
+.generateBody .maleButton {
+    width: 7rem;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background-color: #9fdbf5;
+    font-size: 1.5rem;
+}
+
+.generateBody .femaleButton {
+    width: 7rem;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background-color: #e374b5;
+    font-size: 1.5rem;
+}
+
+.generateBody .submitButton {
+    width: 20rem;
+    height: 5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: #1da2db;
+    font-size: 1.5rem;
+}
