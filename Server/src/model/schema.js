@@ -8,9 +8,7 @@ const schemaSql = `
     CREATE TABLE users (
       user_id    serial PRIMARY KEY NOT NULL,
       username   VARCHAR ( 50 ) UNIQUE NOT NULL,
-      password   VARCHAR ( 50 ) NOT NULL,
       email      VARCHAR ( 255 ) UNIQUE NOT NULL
-
     );
 
     CREATE TABLE todos (
@@ -25,8 +23,8 @@ const schemaSql = `
 
 const dataSql = `
     -- Populate dummy users
-    INSERT INTO users (username, password, email)
-    VALUES('jadenliu12','JADENliu1012','jaden.1012@yahoo.com');
+    INSERT INTO users (username, email)
+    VALUES('jadenliu12','jaden.1012@yahoo.com');
 
     -- Populate dummy usersinfo
     INSERT INTO usersinfo (user_id, weight, height, calories, water, sleep)

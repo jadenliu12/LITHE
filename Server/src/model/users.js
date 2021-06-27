@@ -14,13 +14,13 @@ function list() {
   return db.any(sql);
 }
 
-function create(username, password, email) {
+function create(username, email) {
   const sql = `
         INSERT INTO users ($<this:name>)
-        VALUES ($<username>, $<password>, $<email>)
+        VALUES ($<username>, $<email>)
         RETURNING *
     `;
-  return db.one(sql, { username, password, email });
+  return db.one(sql, { username, email });
 }
 
 module.exports = {

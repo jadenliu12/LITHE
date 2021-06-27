@@ -3,7 +3,7 @@ import axios from 'axios';
 // Production server URL
 const userBaseUrl = 'lithe.us-east-1.elasticbeanstalk.com/api';
 
-export function listUsers() {
+export function listUser() {
   let url = `${userBaseUrl}/users`;
 
   console.log(`Making GET request to: ${url}`);
@@ -17,7 +17,7 @@ export function listUsers() {
 }
 
 
-export function createUser(username, password, email) {
+export function createUser(username, email) {
   let url = `${userBaseUrl}/users`;
 
   console.log(`Making POST request to: ${url}`);
@@ -25,7 +25,6 @@ export function createUser(username, password, email) {
   return axios
     .post(url, {
       username,
-      password,
       email
     })
     .then(function (res) {
