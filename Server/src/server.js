@@ -1,3 +1,4 @@
+require('../config.js');
 const express = require('express');
 
 const userRouter = require('./routers/users.js');
