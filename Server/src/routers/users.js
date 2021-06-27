@@ -20,6 +20,7 @@ router.get('/users', function (req, res, next) {
 
 // Create
 router.post('/users', function (req, res, next) {
+  console.log("enter router");
   const { username, email } = req.body;
   if (!username || !email) {
     const err = new Error('username, password and email required');
