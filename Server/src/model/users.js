@@ -4,6 +4,16 @@ if (!global.db) {
   db = pgp(process.env.DB_URL);
 }
 
+function list() {
+  const sql = `
+        SELECT *
+        FROM users      
+        ORDER BY user_id DESC
+        LIMIT 10
+    `;
+  return db.any(sql);
+}
+
 function create(username, password, email) {
   const sql = `
         INSERT INTO users ($<this:name>)

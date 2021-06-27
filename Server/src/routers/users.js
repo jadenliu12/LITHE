@@ -8,6 +8,16 @@ const router = express.Router();
 
 router.use(express.json());
 
+// List
+router.get('/users', function (req, res, next) {
+  postModel
+    .list()
+    .then((users) => {
+      res.json(users);
+    })
+    .catch(next);
+});
+
 // Create
 router.post('/users', function (req, res, next) {
   const { username, password, email } = req.body;
