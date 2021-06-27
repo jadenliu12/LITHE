@@ -349,10 +349,22 @@ class Authentication extends React.Component {
 
     signIn() {    
         Auth.signIn(this.props.username, this.props.password)
-        .then(fulfilled => {
+        .then(user => {
             console.log("fulfilled:");
-            console.log(fulfilled);
             this.props.dispatch(signedIn());
+            createUser(user.username, user.attributes.email)
+            .then(() => {
+                listUser()
+                    .then((users) => {
+                        console.log(users);
+                    })
+                    .catch((err) => {
+                        console.error('Error listing users', err);
+                    })
+            })
+            .catch((err) => {
+                console.error('Error creating user', err);
+            })            
         })
         .catch(error => {
             this.props.dispatch(updateWarningUsername(true));
