@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 
 import Main from 'components/Main.jsx';
 import {auth, authWarn} from 'states/auth-reducers.js';
+import {calProgress, sleepProgress, waterProgress} from 'states/userHome-reducers.js';
 import {main} from 'states/main-reducers.js';
 import {avatar} from 'states/avatar-reducer.js';
 import {setBody} from 'states/setbody-reducer.js';
@@ -21,9 +22,10 @@ window.onload = function () {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(combineReducers({
     auth, authWarn,
-    avatar,
-    setBody,
+    calProgress, sleepProgress, waterProgress,
     main,
+    avatar,
+    setBody,    
   }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 
   ReactDOM.render(

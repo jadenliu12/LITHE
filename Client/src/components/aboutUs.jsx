@@ -1,4 +1,3 @@
-  
 import React from 'react';
 import ChatBar from 'components/chatBar.jsx'
 import ContactUs from 'components/contactUs.jsx'

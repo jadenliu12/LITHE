@@ -18,10 +18,15 @@ import Home from 'components/home.jsx';
 import AboutUs from 'components/aboutUs.jsx';
 import Authentication from 'components/authentication.jsx'
 import UserHome from 'components/userHome.jsx';
+import UserSearchFood from 'components/userSearchFood.jsx';
 import Statistics from 'components/statistics.jsx';
+import Group from 'components/group.jsx';
+
 import Group from 'components/group.jsx'
 import AvatarGenerator from 'components/generateAvatar.jsx'
 import SetBody from 'components/setBody.jsx'
+
+import {checkUser} from 'states/auth-actions.js';
 import {toggleNavbar} from 'states/main-actions.js';
 
 import { Auth } from 'aws-amplify';
@@ -40,9 +45,14 @@ class Main extends React.Component {
   constructor(props) {
     super(props);  
 
-    this.handleNavbarToggle = this.handleNavbarToggle.bind(this);      
+    this.handleNavbarToggle = this.handleNavbarToggle.bind(this);  
+    this.checkUser = this.checkUser.bind(this);
     this.signOut = this.signOut.bind(this);
   }
+
+  componentDidMount() {
+    this.checkUser();
+  }   
 
   render() {
     return (
@@ -51,7 +61,7 @@ class Main extends React.Component {
           <div className="container">
             <Navbar color="faded" light expand="md">
               <NavbarToggler onClick={this.handleNavbarToggle} />
-              <NavbarBrand className="text-info" href="/">
+              <NavbarBrand className="text-info" href={this.props.status ? "/user-home" : "/"}>
                 LITHE
               </NavbarBrand>
               <Collapse className={this.props.status ? "" : "justify-content-end"} isOpen={this.props.navbarToggle} navbar>       
@@ -90,6 +100,11 @@ class Main extends React.Component {
                         </NavLink>
                       </NavItem>
                       <NavItem>
+                        <NavLink tag={Link} to="/competition">
+                          Competition
+                        </NavLink>
+                      </NavItem>                      
+                      <NavItem>
                         <NavLink tag={Link} to="/statistics">
                           Statistics
                         </NavLink>
@@ -100,10 +115,15 @@ class Main extends React.Component {
               </Collapse>
               {
                 this.props.status &&
-                <div className="signOutButton">
-                  <Button variant="secondary" onClick={this.signOut}>
-                    Sign Out
-                  </Button>
+                <div className="left-nav ml-auto">
+                  <div className='search ml-auto'>
+                    <Input className='ml-auto' type='text' placeholder='Search' onKeyPress={this.handleSearchKeyPress} innerRef={e => this.searchEl = e}></Input>
+                  </div>                 
+                  <div className="signOutButton">
+                    <Button variant="secondary" onClick={this.signOut}>
+                      Sign Out
+                    </Button>
+                  </div>
                 </div>
               }
             </Navbar>
@@ -139,6 +159,13 @@ class Main extends React.Component {
           /> 
           <Route
             exact
+            path="/user-search-food"
+            render={() => (
+              <UserSearchFood/>
+            )}
+          />
+          <Route
+            exact
             path="/group"
             render={() => (
               <Group/>
@@ -166,6 +193,11 @@ class Main extends React.Component {
       window.location.reload());
       window.location.href = '/';
     ;
+  }
+
+  checkUser() {    
+    Auth.currentAuthenticatedUser()
+    .then(user => this.props.dispatch(checkUser(user.attributes.email, user.email))) 
   }
 }
 
