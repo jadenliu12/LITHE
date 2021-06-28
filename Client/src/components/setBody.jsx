@@ -76,7 +76,7 @@ class SetBody extends React.Component {
                         <input className="inputHeight" type="number" placeholder="Height (cm)" name="height" onChange={e => this.onChange(e)}></input>
                         <input className="inputWeight" type="number" placeholder="Weight (kg)" name="weight" onChange={e => this.onChange(e)}></input>
                     </div>
-                    <button className="submitButton" onClick={this.signIn}><Link to="/user-home">Confirm</Link></button>
+                    <button className="submitButton" onClick={this.signIn}><Link to="/sign-in">Confirm</Link></button>
                 </div>
             </div>
         );

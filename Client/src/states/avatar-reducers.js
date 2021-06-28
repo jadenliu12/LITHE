@@ -3,7 +3,7 @@ const initAvatarState = {
     avatarEye: 'images/eye1.png',
     avatarNose: 'images/nose1.png',
     avatarMouth: 'images/mouth1.png',
-    avatarWomanBodySource: '',
+    avatarWomanBodySource: 'images/woman1.png',
     avatarManBodySource: '',
     gender: true
 };
