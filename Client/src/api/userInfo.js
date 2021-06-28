@@ -21,6 +21,7 @@ export function createUserInfo(username, weight, height, calories, water, sleep)
   let url = `${userInfoBaseUrl}/usersInfo`;
 
   console.log(`Making POST request to: ${url}`);
+  console.log(username, weight, height, calories, water, sleep)
 
   return axios
     .post(url, {
