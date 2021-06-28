@@ -1,6 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
+
+import {signedIn} from 'states/auth-actions.js';
 
 import './setBody.css';
 
@@ -17,6 +20,8 @@ class SetBody extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.signIn = this.signIn.bind(this);
     }   
 
     componentDidMount() {
@@ -42,11 +47,15 @@ class SetBody extends React.Component {
                         <input className="inputHeight" type="number" placeholder="Height (cm)"></input>
                         <input className="inputWeight" type="number" placeholder="Weight (kg)"></input>
                     </div>
-                    <button className="submitButton">Confirm</button>
+                    <button className="submitButton" onClick={this.signIn}><Link to="/user-home">Confirm</Link></button>
                 </div>
             </div>
         );
     }  
+
+    signIn() {
+        this.props.dispatch(signedIn());
+    }
 }
 
 export default connect(state => ({
