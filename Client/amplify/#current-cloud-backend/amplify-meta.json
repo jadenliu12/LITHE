@@ -1,0 +1,39 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lithe-env-10418-authRole",
+      "UnauthRoleArn": "arn:aws:iam::074310421294:role/amplify-lithe-env-10418-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::074310421294:role/amplify-lithe-env-10418-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-lithe-env-10418-deployment",
+      "UnauthRoleName": "amplify-lithe-env-10418-unauthRole",
+      "StackName": "amplify-lithe-env-10418",
+      "StackId": "arn:aws:cloudformation:us-east-1:074310421294:stack/amplify-lithe-env-10418/14de2cd0-c620-11eb-b23d-0a720c487c5f",
+      "AmplifyAppId": "d3i2c3rdjw1j1r",
+      "AuthTriggerTemplateURL": ""
+    }
+  },
+  "auth": {
+    "lithe68ea87c5": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-lithe-env-10418-deployment/amplify-cfn-templates/auth/lithe68ea87c5-cloudformation-template.yml",
+        "logicalId": "authlithe68ea87c5"
+      },
+      "lastPushTimeStamp": "2021-06-05T17:12:24.372Z",
+      "output": {
+        "UserPoolId": "us-east-1_xWWyW39Eh",
+        "AppClientIDWeb": "7grsdhdf11tvhh14ja1l49o5jd",
+        "AppClientID": "6ebpmkvdr9o2gnva0rb38irlnh",
+        "IdentityPoolId": "us-east-1:563a6d27-1fbe-46bb-b5ad-b3d307e579be",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:074310421294:userpool/us-east-1_xWWyW39Eh",
+        "IdentityPoolName": "lithe68ea87c5_identitypool_68ea87c5__env",
+        "UserPoolName": "lithe68ea87c5_userpool_68ea87c5"
+      },
+      "lastPushDirHash": "iRpi7JA4CF1lBa4X8+eAGGMht2Q="
+    }
+  }
+}

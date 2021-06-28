@@ -1,0 +1,67 @@
+.userHome .body {
+    background-color: #F2F1E5;
+}
+
+.userHome .input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userHome .today {
+    text-align: center;
+}
+
+.userHome .inputRecords {
+    display: inline-block;
+    width: 80%;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+}
+
+.userHome .unitChoices {
+    display: inline-block;
+    margin-left: 2%;
+    width: 18%;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+}
+
+.userHome label {
+    display: block;
+    padding-top: 1.5rem;
+}
+
+.userHome .icon {
+    height: 8rem;
+    width: 8rem;
+    background-color: #9e835a;
+}
+
+.userHome .userInfo {
+    padding-right: 8rem;
+    text-align: center;
+}
+
+.userHome .addUser {
+    padding-left: 8rem;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.userHome .button {
+    background-color: #7a5f35;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3rem;
+    padding: 5px 200px;
+    cursor: pointer;
+  }
