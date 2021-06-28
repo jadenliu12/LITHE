@@ -15,7 +15,6 @@ function list() {
 }
 
 function create(username, email) {
-  console.log("enter model");
   const sql = `
         INSERT INTO users ($<this:name>)
         VALUES ($<username>, $<email>)

@@ -11,14 +11,29 @@ const schemaSql = `
       email      VARCHAR ( 255 ) UNIQUE NOT NULL
     );
 
-    CREATE TABLE todos (
-      user_id    INT NOT NULL,
+    CREATE TABLE usersinfo (
+      user_id    INT PRIMARY KEY NOT NULL,
       weight     INT NOT NULL,
       height     INT NOT NULL,
       calories   INT NOT NULL,
       water      INT NOT NULL,
       sleep      INT NOT NULL      
     );
+
+    CREATE TABLE usersavatar (
+      user_id    INT PRIMARY KEY NOT NULL,
+      hair       INT NOT NULL,
+      eye        INT NOT NULL,
+      nose       INT NOT NULL,
+      mouth      INT NOT NULL,
+      body       INT NOT NULL      
+    );
+
+    CREATE TABLE friends (
+      firends_id INT PRIMARY KEY NOT NULL,
+      user_a     INT NOT NULL,
+      user_b     INT NOT NULL
+    );    
 `;
 
 const dataSql = `
