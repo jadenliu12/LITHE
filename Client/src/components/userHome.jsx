@@ -30,6 +30,10 @@ class UserHome extends React.Component {
         this.checkInput = this.checkInput.bind(this);
     }
 
+    componentDidMount() {
+        // load the data and show it
+    }
+
     render() {
         return (
             <div className="userHome">

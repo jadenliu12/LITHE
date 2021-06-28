@@ -1,0 +1,13 @@
+.userImage {
+    height: 6rem;
+    width: 6rem;
+}
+
+.userPlace{
+    height: 3rem;
+    width: 3rem;   
+}
+
+.Place {
+    text-align: center;
+}
