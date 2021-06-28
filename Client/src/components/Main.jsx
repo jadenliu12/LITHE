@@ -22,6 +22,10 @@ import UserSearchFood from 'components/userSearchFood.jsx';
 import Statistics from 'components/statistics.jsx';
 import Group from 'components/group.jsx';
 
+import Group from 'components/group.jsx'
+import AvatarGenerator from 'components/generateAvatar.jsx'
+import SetBody from 'components/setBody.jsx'
+
 import {checkUser} from 'states/auth-actions.js';
 import {toggleNavbar} from 'states/main-actions.js';
 
@@ -129,14 +133,14 @@ class Main extends React.Component {
             exact
             path="/"
             render={() => (
-              <Home/>
+              <AvatarGenerator/>
             )}
           />
           <Route
             exact
             path="/about-us"
             render={() => (
-              <AboutUs/>
+              <SetBody/>
             )}
           />          
           <Route

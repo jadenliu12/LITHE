@@ -42,6 +42,9 @@ class UserHome extends React.Component {
                     <div className="inputInfo">
                         <h3 className="today">YOUR DAILY RECORD</h3>
                         <div>
+                            <form onClick={this.handleCalorieToggle} >
+                                <label htmlFor="calories">Calorie Intake</label>
+                                <input className="inputRecords" type="text" />
                             <form >
                                 <label htmlFor="calories">Calorie Intake | <span><Link to="/user-search-food">Food Calorie Counter</Link> </span></label>
                                 <input className="inputRecords" id="calInput" type="number"></input>
@@ -54,6 +57,7 @@ class UserHome extends React.Component {
                                 </div>
 
                                 <label htmlFor="mililiters">Water Intake</label>
+                                <input className="inputRecords" />
                                 <input className="inputRecords" id="waterInput" type="number"></input>
                                 <select name="unitWater" className="unitChoices" defaultValue="ml"  onClick={this.changeUnitWater}>
                                     <option value="ml">ml</option>
@@ -102,6 +106,10 @@ class UserHome extends React.Component {
         water.value = "";
         sleep.value = "";
     }
+
+    // inputCal() {
+
+    // }
 }
 
 export default connect(state => ({

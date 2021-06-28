@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatBar from 'components/chatBar.jsx'
 import ContactUs from 'components/contactUs.jsx'
 
 import './aboutUs.css';
@@ -7,7 +8,7 @@ export default class AboutUs extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.toggleChat = 0;
         this.state = {            
             loading: false,
             masking: false
@@ -21,6 +22,11 @@ export default class AboutUs extends React.Component {
 
     componentWillUnmount() {
         console.log('Unmount About Us')
+    }
+
+    toggleChatWindow() {
+        this.toggleChat = ~this.toggleChat;
+        ChatBar.openChat(this.toggleChat);
     }
 
     render() {
