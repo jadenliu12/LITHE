@@ -20,14 +20,15 @@ router.get('/usersAvatar', function (req, res, next) {
 
 // Create
 router.post('/usersAvatar', function (req, res, next) {
-  const { user_id, hair, eye, nose, mouth, body } = req.body;
-  if (!user_id || !hair || !eye || !nose || !mouth || !body) {
-    const err = new Error('username, password and email required');
+  const { username, hair, eye, nose, mouth, body } = req.body;
+  console.log(req.body);
+  if (!username || !hair || !eye || !nose || !mouth || !body) {
+    const err = new Error('username, hair, eye, nose, mouth and body required');
     err.status = 400;
     throw err;
   }
   userAvatarModel
-    .create(user_id, hair, eye, nose, mouth, body)
+    .create(username, hair, eye, nose, mouth, body)
     .then((usersAvatar) => {
       res.json(usersAvatar);
     })

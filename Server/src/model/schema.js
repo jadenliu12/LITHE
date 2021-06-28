@@ -6,33 +6,32 @@ db = pgp(process.env.DB_URL);
 
 const schemaSql = `
     CREATE TABLE users (
-      user_id    serial PRIMARY KEY NOT NULL,
       username   VARCHAR ( 50 ) UNIQUE NOT NULL,
       email      VARCHAR ( 255 ) UNIQUE NOT NULL
     );
 
     CREATE TABLE usersinfo (
-      user_id    INT PRIMARY KEY NOT NULL,
+      username   VARCHAR ( 50 ) PRIMARY KEY NOT NULL,
       weight     INT NOT NULL,
       height     INT NOT NULL,
-      calories   INT NOT NULL,
-      water      INT NOT NULL,
-      sleep      INT NOT NULL      
+      calories   integer NOT NULL DEFAULT 0,
+      water      integer NOT NULL DEFAULT 0,
+      sleep      integer NOT NULL DEFAULT 0
     );
 
     CREATE TABLE usersavatar (
-      user_id    INT PRIMARY KEY NOT NULL,
-      hair       INT NOT NULL,
-      eye        INT NOT NULL,
-      nose       INT NOT NULL,
-      mouth      INT NOT NULL,
-      body       INT NOT NULL      
+      username   VARCHAR ( 50 ) PRIMARY KEY NOT NULL,
+      hair       VARCHAR ( 50 ) NOT NULL,
+      eye        VARCHAR ( 50 ) NOT NULL,
+      nose       VARCHAR ( 50 ) NOT NULL,
+      mouth      VARCHAR ( 50 ) NOT NULL,
+      body       VARCHAR ( 50 ) NOT NULL      
     );
 
     CREATE TABLE friends (
       firends_id INT PRIMARY KEY NOT NULL,
-      user_a     INT NOT NULL,
-      user_b     INT NOT NULL
+      user_a     VARCHAR ( 50 ) NOT NULL,
+      user_b     VARCHAR ( 50 ) NOT NULL
     );    
 `;
 

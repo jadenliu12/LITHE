@@ -17,14 +17,15 @@ export function listUserAvatar() {
 }
 
 
-export function createUserAvatar(user_id, hair, eye, nose, mouth, body) {
+export function createUserAvatar(username, hair, eye, nose, mouth, body) {
   let url = `${userAvatarBaseUrl}/usersAvatar`;
 
   console.log(`Making POST request to: ${url}`);
+  console.log(username, hair, eye, nose, mouth, body);
 
   return axios
     .post(url, {
-      user_id,
+      username,
       hair,
       eye,
       nose,

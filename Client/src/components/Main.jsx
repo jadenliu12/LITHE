@@ -133,14 +133,14 @@ class Main extends React.Component {
             exact
             path="/"
             render={() => (
-              <AvatarGenerator/>
+              <Home/>
             )}
           />
           <Route
             exact
             path="/about-us"
             render={() => (
-              <SetBody/>
+              <AboutUs/>
             )}
           />          
           <Route

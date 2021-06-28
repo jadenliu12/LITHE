@@ -1,6 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
+
+import {signIn} from 'states/auth-actions.js';
+import {onChange} from 'states/userInfo-actions.js';
+
+import {createUserInfo, listUserInfo} from 'api/userInfo.js';
 
 import './setBody.css';
 
@@ -11,12 +17,18 @@ class SetBody extends React.Component {
         avatarNose: PropTypes.string,
         avatarMouth: PropTypes.string,
         avatarBodySource: PropTypes.string,
+        username: PropTypes.string,
+        height: PropTypes.number,
+        weight: PropTypes.number,
         store: PropTypes.object,
         dispatch: PropTypes.func
       };    
 
     constructor(props) {
         super(props);
+
+        this.signIn = this.signIn.bind(this);
+        this.onChange = this.onChange.bind(this);
     }   
 
     componentDidMount() {
@@ -39,16 +51,40 @@ class SetBody extends React.Component {
                 </div>
                 <div className="inputBody">
                     <div className="inputBox">
-                        <input className="inputHeight" type="number" placeholder="Height (cm)"></input>
-                        <input className="inputWeight" type="number" placeholder="Weight (kg)"></input>
+                        <input className="inputHeight" type="number" placeholder="Height (cm)" name="height" onChange={e => this.onChange(e)}></input>
+                        <input className="inputWeight" type="number" placeholder="Weight (kg)" name="weight" onChange={e => this.onChange(e)}></input>
                     </div>
-                    <button className="submitButton">Confirm</button>
+                    <button className="submitButton" onClick={this.signIn}><Link to="/user-home">Confirm</Link></button>
                 </div>
             </div>
         );
     }  
+
+    onChange(e) {
+        e.persist();        
+        this.props.dispatch(onChange(e.target.name, Number(e.target.value)));
+    }
+
+    signIn() {
+        this.props.dispatch(signIn());
+        createUserInfo(this.props.username, this.props.weight, this.props.height)
+        .then(() => {
+            listUserInfo()
+                .then((usersInfo) => {
+                    console.log(usersInfo);
+                })
+                .catch((err) => {
+                    console.error('Error listing users', err);
+                })
+        })
+        .catch((err) => {
+            console.error('Error creating user', err);
+        })        
+    }
 }
 
 export default connect(state => ({
     ...state.avatar,
+    ...state.userInfo,
+    username: state.auth.username
 }))(SetBody);

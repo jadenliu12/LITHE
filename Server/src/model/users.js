@@ -7,9 +7,9 @@ if (!global.db) {
 function list() {
   const sql = `
         SELECT *
-        FROM users      
-        ORDER BY user_id DESC
-        LIMIT 10
+        FROM users  
+        ORDER BY username DESC
+        LIMIT 10                            
     `;
   return db.any(sql);
 }

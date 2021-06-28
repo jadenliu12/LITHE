@@ -7,7 +7,8 @@ import CalorieBarChart from 'components/calorieChart.jsx';
 import WaterBarChart from 'components/waterChart.jsx';
 import SleepBarChart from 'components/sleepChart.jsx';
 
-import {changeUnitCal, changeUnitSleep, changeUnitWater, updateData} from 'states/userHome-actions.js';
+import {changeUnitCal, changeUnitSleep, changeUnitWater, updateData, setData} from 'states/userHome-actions.js';
+import {listUserInfo, updateNutrition} from 'api/userInfo.js';
 
 import './userHome.css';
 
@@ -16,6 +17,7 @@ class UserHome extends React.Component {
         dataCal: PropTypes.object,
         dataSleep: PropTypes.object,
         dataWater: PropTypes.object,
+        username: PropTypes.string,
         store: PropTypes.object,
         dispatch: PropTypes.func
       };
@@ -31,7 +33,17 @@ class UserHome extends React.Component {
     }
 
     componentDidMount() {
-        // load the data and show it
+        listUserInfo()
+            .then((usersInfo) => {
+                for (var i=0; i < usersInfo.length; i++) {
+                    if (usersInfo[i].username === this.props.username) {
+                        this.props.dispatch(setData(usersInfo[i].calories, usersInfo[i].sleep, usersInfo[i].water));
+                    }
+                }                
+            })
+            .catch((err) => {
+                console.error('Error listing users', err);
+            })        
     }
 
     render() {
@@ -58,7 +70,6 @@ class UserHome extends React.Component {
                                 </div>
 
                                 <label htmlFor="mililiters">Water Intake</label>
-                                <input className="inputRecords" />
                                 <input className="inputRecords" id="waterInput" type="number"></input>
                                 <select name="unitWater" className="unitChoices" defaultValue="ml"  onClick={this.changeUnitWater}>
                                     <option value="ml">ml</option>
@@ -102,19 +113,26 @@ class UserHome extends React.Component {
         const cal = document.getElementById("calInput");
         const water = document.getElementById("waterInput");
         const sleep = document.getElementById("SleepInput");
-        this.props.dispatch(updateData(cal.value, sleep.value, water.value));
+        this.props.dispatch(updateData(cal.value, sleep.value, water.value));        
+        updateNutrition(this.props.username, this.props.dataCal.datasets[0].data[0] + Number(cal.value), 
+                        this.props.dataSleep.datasets[0].data[0] + Number(sleep.value), 
+                        this.props.dataWater.datasets[0].data[0] + Number(water.value)
+                        )
+            .then((nutritionInfo) => {
+                console.log(nutritionInfo);
+            })
+            .catch((err) => {
+                console.error('Error listing users', err);
+            }) 
         cal.value = "";
         water.value = "";
         sleep.value = "";
     }
-
-    // inputCal() {
-
-    // }
 }
 
 export default connect(state => ({
     ...state.calProgress,
     ...state.sleepProgress,
     ...state.waterProgress,
+    username: state.auth.username
   }))(UserHome);

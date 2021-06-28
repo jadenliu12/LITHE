@@ -4,6 +4,8 @@ import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
 import {changeHair, changeEyes, changeNose, changeMouth, changeWomanBody, changeManBody} from 'states/avatar-actions.js';
 
+import {createUserAvatar, listUserAvatar} from 'api/userAvatar.js';
+
 import './generateAvatar.css';
 
 class AvatarGenerator extends React.Component {
@@ -13,6 +15,7 @@ class AvatarGenerator extends React.Component {
         avatarNose: PropTypes.string,
         avatarMouth: PropTypes.string,
         avatarBodySource: PropTypes.string,
+        username: PropTypes.string,
         store: PropTypes.object,
         dispatch: PropTypes.func
       };    
@@ -31,6 +34,7 @@ class AvatarGenerator extends React.Component {
         this.generateMouth = this.generateMouth.bind(this);
         this.generateWomanBody = this.generateWomanBody.bind(this);
         this.generateManBody = this.generateManBody.bind(this);
+        this.sendToServer = this.sendToServer.bind(this);
     }   
 
     componentDidMount() {
@@ -64,7 +68,7 @@ class AvatarGenerator extends React.Component {
                 <div className="gender">
                     <button className="femaleButton" onClick={this.generateWomanBody}>Female</button>
                     <button className="maleButton" onClick={this.generateManBody}>Male</button>
-                    <button className="submitButton"><Link to="/set-body">Generate!</Link></button>
+                    <button className="submitButton" onClick={this.sendToServer}><Link to="/set-body">Generate!</Link></button>
                 </div>                
             </div>
         );
@@ -97,8 +101,25 @@ class AvatarGenerator extends React.Component {
     generateManBody() {
         this.props.dispatch(changeManBody(1));
     }
+
+    sendToServer() {
+        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.avatarBodySource)            
+            .then(() => {
+                listUserAvatar()
+                    .then((usersAvatar) => {
+                        console.log(usersAvatar);
+                    })
+                    .catch((err) => {
+                        console.error('Error listing users avatar', err);
+                    })
+            })
+            .catch((err) => {
+                console.error('Error creating users avatar', err);
+            })              
+    }
 }
 
 export default connect(state => ({
     ...state.avatar,
+    username: state.auth.username
 }))(AvatarGenerator);

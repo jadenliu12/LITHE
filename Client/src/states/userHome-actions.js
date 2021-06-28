@@ -20,6 +20,13 @@ export function changeUnitWater(unit) {
     }
 }
 
+export function setData(cal, sleep, water) {
+    return {
+        type: '@USER_HOME/SET_DATA',
+        cal, sleep, water
+    }
+}
+
 export function updateData(cal, sleep, water) {
     return {
         type: '@USER_HOME/UPDATE_DATA',

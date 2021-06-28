@@ -17,19 +17,17 @@ export function listUserInfo() {
 }
 
 
-export function createUserInfo(user_id, weight, height, calories, water, sleep) {
+export function createUserInfo(username, weight, height) {
   let url = `${userInfoBaseUrl}/usersInfo`;
 
   console.log(`Making POST request to: ${url}`);
+  console.log(username, weight, height)
 
   return axios
     .post(url, {
-      user_id,
+      username,
       weight,
-      height,
-      calories,
-      water,
-      sleep
+      height
     })
     .then(function (res) {
       if (res.status !== 200)
@@ -38,3 +36,22 @@ export function createUserInfo(user_id, weight, height, calories, water, sleep) 
       return res.data;
     });
 }
+
+export function updateNutrition(username, cal, sleep, water) {
+  let url = `${userInfoBaseUrl}/usersInfo/update`;
+
+  console.log(`Making POST request to: ${url}`);
+
+  return axios.post(url, {
+    username,
+    cal, 
+    sleep,
+    water
+  }).then(function (res) {
+    if (res.status !== 200)
+      throw new Error(`Unexpected response code: ${res.status}`);
+
+    return res.data;
+  });
+}
+
