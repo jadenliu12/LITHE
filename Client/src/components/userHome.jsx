@@ -113,11 +113,11 @@ class UserHome extends React.Component {
         const cal = document.getElementById("calInput");
         const water = document.getElementById("waterInput");
         const sleep = document.getElementById("SleepInput");
-        this.props.dispatch(updateData(cal.value, sleep.value, water.value));        
+        this.props.dispatch(updateData(cal.value, sleep.value, water.value));           
         updateNutrition(this.props.username, 
-                        this.props.dataCal.datasets[0].data[0] + (cal.value === '' ? 0 : this.props.dataCal.datasets[0].label === 'Cal' ? Number(cal.value)/1000 : Number(cal.value)), 
-                        this.props.dataSleep.datasets[0].data[0] + (sleep.value === '' ? 0 : this.props.dataSleep.datasets[0].label === 'Mins' ? Number(sleep.value)/60 : Number(sleep.value)), 
-                        this.props.dataWater.datasets[0].data[0] + (water.value === '' ? 0 : this.props.dataWater.datasets[0].label === 'l' ? Number(water.value)*1000 : Number(water.value))
+                        (this.props.dataCal.datasets[0].label === 'KCal' ? this.props.dataCal.datasets[0].data[0] : this.props.dataCal.datasets[0].data[0]/1000) + (cal.value === '' ? 0 : this.props.dataCal.datasets[0].label === 'Cal' ? Number(cal.value)/1000 : Number(cal.value)), 
+                        (this.props.dataSleep.datasets[0].label === 'Hrs' ? this.props.dataSleep.datasets[0].data[0] : this.props.dataSleep.datasets[0].data[0]/60) + (sleep.value === '' ? 0 : this.props.dataSleep.datasets[0].label === 'Mins' ? Number(sleep.value)/60 : Number(sleep.value)), 
+                        (this.props.dataWater.datasets[0].label === 'ml' ? this.props.dataWater.datasets[0].data[0] : this.props.dataWater.datasets[0].data[0]*1000) + (water.value === '' ? 0 : this.props.dataWater.datasets[0].label === 'l' ? Number(water.value)*1000 : Number(water.value))
                         )
             .then((nutritionInfo) => {
                 console.log(nutritionInfo);
