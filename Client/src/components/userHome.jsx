@@ -114,9 +114,9 @@ class UserHome extends React.Component {
         const water = document.getElementById("waterInput");
         const sleep = document.getElementById("SleepInput");
         this.props.dispatch(updateData(cal.value, sleep.value, water.value));        
-        updateNutrition(this.props.username, this.props.dataCal.datasets[0].data[0] + Number(cal.value), 
-                        this.props.dataSleep.datasets[0].data[0] + Number(sleep.value), 
-                        this.props.dataWater.datasets[0].data[0] + Number(water.value)
+        updateNutrition(this.props.username, this.props.dataCal.datasets[0].data[0] + Number(cal.value === '' ? '0' : cal.value), 
+                        this.props.dataSleep.datasets[0].data[0] + Number(sleep.value === '' ? '0' : sleep.value), 
+                        this.props.dataWater.datasets[0].data[0] + Number(water.value === '' ? '0' : water.value)
                         )
             .then((nutritionInfo) => {
                 console.log(nutritionInfo);
