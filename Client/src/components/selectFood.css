@@ -1,5 +1,4 @@
 .userInput .body {
-    background-color: #F2F1E5;
     text-align: center;
 }
 
@@ -44,6 +43,7 @@
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
     box-sizing: border-box;
+    background-color: #fcf4de;
 }
 
 .userInput label {

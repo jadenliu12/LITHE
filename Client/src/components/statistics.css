@@ -45,7 +45,7 @@
 .calendar .color0 {
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #ededed;
+    background-color: #fff4db;
     margin-right: 0.3rem;
     margin-left: 1rem;
 }
@@ -53,7 +53,7 @@
 .calendar .color1 {
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #acd5f2;
+    background-color: #cfbc8f;
     margin-right: 0.3rem;
     margin-left: 1rem;
 }
@@ -61,7 +61,7 @@
 .calendar .color2 {
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #7fa8d1;
+    background-color: #a8966a;
     margin-right: 0.3rem;
     margin-left: 1rem;
 }
@@ -69,7 +69,7 @@
 .calendar .color3 {
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #49729b;
+    background-color: #786841;
     margin-right: 0.3rem;
     margin-left: 1rem;
 }
@@ -77,7 +77,7 @@
 .calendar .color4 {
     height: 1.2rem;
     width: 1.2rem;
-    background-color: #254e77;
+    background-color: #45391c;
     margin-right: 0.3rem;
     margin-left: 1rem;
 }

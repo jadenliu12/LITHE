@@ -1,37 +1,37 @@
-.aboutUs .body {
+.friendProfile .body {
     background-color: #F2F1E5;
 }
 
-.aboutUs .user {
+.friendProfile .user {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.aboutUs .horizontalChart {
+.friendProfile .horizontalChart {
     width: 55%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.aboutUs .icon {
+.friendProfile .icon {
     height: 8rem;
     width: 8rem;
     background-color: #9e835a;
 }
 
-.aboutUs .userInfo {
+.friendProfile .userInfo {
     padding-right: 3rem;
     text-align: center;
 }
 
-.aboutUs .addUser {
+.friendProfile .addUser {
     padding-left: 3rem;
     text-align: center;
     line-height: 2rem;
 }
 
-.aboutUs .button {
+.friendProfile .button {
     background-color: #4c87af;
     border: none;
     border-radius: 0.5rem;
