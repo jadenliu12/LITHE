@@ -31,6 +31,8 @@ class SetBody extends React.Component {
         super(props);
         this.avatarBodyNum = 1;
         this.userBMI = 0;
+        this.height = 0;
+        this.weight = 0;
 
         this.setBody = this.setBody.bind(this);
 
@@ -55,7 +57,7 @@ class SetBody extends React.Component {
 
         else if(this.props.avatarManBodySource === "") {
             this.userBMI = ((this.weight) / (((this.height)/100)*((this.height)/100)));
-            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI <= 29.9) ? 3 : 4);
+            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI && this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI && this.userBMI <= 29.9) ? 3 : 4);
             this.props.dispatch(changeWomanBody(this.avatarBodyNum));
         }
     }
@@ -85,7 +87,11 @@ class SetBody extends React.Component {
     onChange(e) {
         e.persist();        
         this.props.dispatch(onChange(e.target.name, Number(e.target.value)));
-        if(this.props.height >= 100 && this.props.weight > 0) {
+        if(e.target.name === "height") this.height = Number(e.target.value);
+        else this.weight = Number(e.target.value);
+
+        if(this.height >= 100 && this.weight > 0) {
+            console.log("set body!");
             this.setBody();
         }
     }
