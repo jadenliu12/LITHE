@@ -76,15 +76,15 @@ class Authentication extends React.Component {
                         <div className="form-container">
                             <Form className="sign-form">
                                 <h1 className="text-info">Lithe.</h1>
-                                <h3 className="text-center">Welcome</h3>
+                                <h3 className="text-center">Welcome!</h3>
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>
-                                    <Input name="username" onChange={e => this.onChange(e)} placeholder="username" />
+                                    <Input name="username" onChange={e => this.onChange(e)} placeholder="Username" />
                                 </FormGroup>
 
                                 <FormGroup className="form-component">
                                     <Label>Password:</Label>
-                                    <Input name="password" type="password" onChange={e => this.onChange(e)} placeholder="password" />                            
+                                    <Input name="password" type="password" onChange={e => this.onChange(e)} placeholder="Password" />                            
                                 </FormGroup>
                                 {
                                     this.props.warningMessage !== "" && 
@@ -94,10 +94,10 @@ class Authentication extends React.Component {
 
                                 <div className="form-component">
                                     <div className="text-center">
-                                        <span>Not register? </span><a className="link" onClick={this.connectSignUp}>create an account</a>
+                                        <span>Not registered? </span><a className="link" onClick={this.connectSignUp}>Create an account!</a>
                                     </div>
                                     <div className="text-center">
-                                        <a className="link" onClick={this.connectForgot}>Forget your password?</a>
+                                        <a className="link" onClick={this.connectForgot}>Forgot your password?</a>
                                     </div>
                                 </div>                                
                             </Form>

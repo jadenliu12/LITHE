@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     object-fit: fill;
-    background-color: #49C3C8;
+    background-color: #abe1ff;
     border: solid;
     border-color: black;
     border-width: 5px;
@@ -88,30 +88,13 @@
 .generateBody .inputWeight {
     display: block;
     margin: 1rem;
+    background-color: #fcf5d9;
 }
 
 .generateBody .inputHeight {
     display: block;
     margin: 1rem;
-}
-
-.generateBody .maleButton {
-    display: inline-block;
-    width: 7rem;
-    height: 3rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    background-color: #9fdbf5;
-    font-size: 1.5rem;
-}
-
-.generateBody .femaleButton {
-    width: 7rem;
-    height: 3rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    background-color: #e374b5;
-    font-size: 1.5rem;
+    background-color: #fcf5d9;
 }
 
 .generateBody .submitButton {
@@ -119,6 +102,6 @@
     height: 5rem;
     margin: 1rem;
     border-radius: 1rem;
-    background-color: #1da2db;
+    background-color: #a8966a;
     font-size: 1.5rem;
 }
