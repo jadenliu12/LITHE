@@ -6,10 +6,8 @@ if (!global.db) {
 function create(username, cal, sleep, water) {
     const sql = `
             UPDATE usersinfo
-            SET "calories" = $2
-            SET "water" = $4
-            SET "sleep" = $3
-            WHERE username = $1
+            SET calories = $2, sleep = $3, water = $4
+            WHERE username = '$1'
             RETURNING *
         `;
     return db.one(sql, [username, cal, sleep, water]);
