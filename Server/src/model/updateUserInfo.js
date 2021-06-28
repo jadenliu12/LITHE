@@ -7,7 +7,7 @@ function create(username, cal, sleep, water) {
     const sql = `
             UPDATE usersinfo
             SET calories = $2, sleep = $3, water = $4
-            WHERE username = '$1'
+            WHERE username = $1:name
             RETURNING *
         `;
     return db.one(sql, [username, cal, sleep, water]);
