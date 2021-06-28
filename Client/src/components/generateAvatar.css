@@ -24,7 +24,6 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     object-fit: fill;
-    background-color: #49C3C8;
     border: solid;
     border-color: black;
     border-width: 5px;
@@ -89,7 +88,7 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #9fdbf5;
+    background-color: #fcf5d9;
     font-size: 1.5rem;
 }
 
@@ -116,7 +115,7 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #1da2db;
+    background-color: #a8966a;
     font-size: 1.5rem;
     color: #000000;
 }

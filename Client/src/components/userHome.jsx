@@ -71,8 +71,6 @@ class UserHome extends React.Component {
                 </div>
                 <div className="input d-flex flex-wrap align-items-center justify-content-center"> 
                     <div className="userInfo">
-                        <div className="userName">Jaden</div>
-                        <div className="userRank">Advanced</div>
                     </div>  
                     <div className="inputInfo">
                         <h3 className="today">YOUR DAILY RECORD</h3>

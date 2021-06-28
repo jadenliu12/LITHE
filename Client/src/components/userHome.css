@@ -1,5 +1,5 @@
 .userHome .body {
-    background-color: #F2F1E5;
+    background-color: #abe1ff;
     display: inline-block;
 }
 
@@ -20,6 +20,8 @@
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
     box-sizing: border-box;
+    background-color: #fcf5d9;
+    /* #f5e3bc; */
 }
 
 .userHome .unitChoices {
@@ -29,11 +31,13 @@
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
     box-sizing: border-box;
+    background-color: #fcf5d9;
 }
 
 .userHome label {
     display: block;
     padding-top: 1.5rem;
+    color: #474125;
 }
 
 .userHome .userInfo {
@@ -48,7 +52,7 @@
 }
 
 .userHome .button {
-    background-color: #7a5f35;
+    background-color: #7a6941;
     border: none;
     border-radius: 0.5rem;
     color: white;
@@ -96,22 +100,12 @@
     position: absolute;
 }
 
-.userHome .background {
-    margin-left: 275px;
-    margin-right: auto;
-    margin-top: 171px;
-    width: 10rem;
-    position: absolute;
-    background-color: #49C3C8;
-}
-
 .userHome .womanBody {
     margin-left: 275px;
     margin-right: auto;
     margin-top: 171px;
     max-width: 150px;
     position: absolute;
-    background-color: #49C3C8;
 }
 
 .userHome .manBody {

@@ -1,9 +1,9 @@
 import React from 'react';
 import HorizontalBarChart from 'components/horizontalChart.jsx';
 
-import './friends.css';
+import './friendProfile.css';
 
-export default class Friends extends React.Component {
+export default class FriendProfile extends React.Component {
 
     constructor(props) {
         super(props);
@@ -16,16 +16,16 @@ export default class Friends extends React.Component {
     }
 
     componentDidMount() {
-        console.log('Mount Contact Us');
+        console.log('Mount Friend Profile');
     }
 
     componentWillUnmount() {
-        console.log('Unmount Contact Us')
+        console.log('Unmount Friend Profile')
     }
 
     render() {
         return (
-            <div className="aboutUs">
+            <div className="friendProfile">
                 <div className="user" class="d-flex justify-content-center"> 
                     <div className="userInfo">
                         <div className="icon"></div>
