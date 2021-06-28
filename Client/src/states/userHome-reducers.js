@@ -27,7 +27,7 @@ export function calProgress(state = initCalorieState, action) {
                         label: action.unit,
                         data: action.unit === state.dataCal.datasets[0].label ? 
                               state.dataCal.datasets[0].data : action.unit === 'Cal' ? 
-                              [state.dataCal.datasets[0].data[0]/1000, state.dataCal.datasets[0].data[1]/1000] : [state.dataCal.datasets[0].data[0]*1000, state.dataCal.datasets[0].data[1]*1000],
+                              [state.dataCal.datasets[0].data[0]*1000, state.dataCal.datasets[0].data[1]*1000] : [state.dataCal.datasets[0].data[0]/1000, state.dataCal.datasets[0].data[1]/1000],
                         backgroundColor: [
                           'rgba(51, 31, 0, 0.5)',
                         ],

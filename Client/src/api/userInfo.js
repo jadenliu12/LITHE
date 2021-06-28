@@ -38,12 +38,11 @@ export function createUserInfo(username, weight, height) {
 }
 
 export function updateNutrition(username, cal, sleep, water) {
-  let url = `${userInfoBaseUrl}/usersInfo/update`;
+  let url = `${userInfoBaseUrl}/usersInfo/${username}`;
 
   console.log(`Making POST request to: ${url}`);
 
-  return axios.post(url, {
-    username,
+  return axios.post(url, {    
     cal, 
     sleep,
     water
