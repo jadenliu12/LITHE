@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
 import {changeWomanBody, changeManBody, deleteWomanBody, deleteManBody} from 'states/avatar-actions.js';
+import {createUserAvatar, listUserAvatar} from 'api/userAvatar.js';
 
 
 import {signIn} from 'states/auth-actions.js';
@@ -110,7 +111,20 @@ class SetBody extends React.Component {
         })
         .catch((err) => {
             console.error('Error creating user', err);
-        })        
+        })    
+        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.gender ? this.props.avatarWomanBodySource : this.props.avatarManBodySource, this.props.gender)            
+            .then(() => {
+                listUserAvatar()
+                    .then((usersAvatar) => {
+                        console.log(usersAvatar);
+                    })
+                    .catch((err) => {
+                        console.error('Error listing users avatar', err);
+                    })
+            })
+            .catch((err) => {
+                console.error('Error creating users avatar', err);
+            })             
     }
 }
 
