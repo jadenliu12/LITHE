@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Production server URL
-const userBaseUrl = 'lithe.us-east-1.elasticbeanstalk.com/api';
+const userBaseUrl = 'http://lithe.us-east-1.elasticbeanstalk.com/api';
 
 export function listUser() {
   let url = `${userBaseUrl}/users`;
