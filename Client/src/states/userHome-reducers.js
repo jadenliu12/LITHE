@@ -6,10 +6,10 @@ const initCalorieState = {
             label: 'KCal',
             data: [0, 2200],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(255, 255, 255, 0.5)',
             ],
             borderColor: [
-              'rgba(51, 31, 0, 1)',
+              'rgba(255, 255, 255, 1)',
             ],
             borderWidth: 1,
           },
@@ -27,12 +27,12 @@ export function calProgress(state = initCalorieState, action) {
                         label: action.unit,
                         data: action.unit === state.dataCal.datasets[0].label ? 
                               state.dataCal.datasets[0].data : action.unit === 'Cal' ? 
-                              [state.dataCal.datasets[0].data[0]/1000, state.dataCal.datasets[0].data[1]/1000] : [state.dataCal.datasets[0].data[0]*1000, state.dataCal.datasets[0].data[1]*1000],
+                              [state.dataCal.datasets[0].data[0]*1000, state.dataCal.datasets[0].data[1]*1000] : [state.dataCal.datasets[0].data[0]/1000, state.dataCal.datasets[0].data[1]/1000],
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -48,10 +48,10 @@ export function calProgress(state = initCalorieState, action) {
                         label: state.dataCal.datasets[0].label,
                         data: [state.dataCal.datasets[0].data[0] + Number(action.cal), state.dataCal.datasets[0].data[1]],
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -67,10 +67,10 @@ export function calProgress(state = initCalorieState, action) {
                   label: state.dataCal.datasets[0].label,
                   data: [Number(action.cal), state.dataCal.datasets[0].data[1]],
                   backgroundColor: [
-                    'rgba(51, 31, 0, 0.5)',
+                    'rgba(255, 255, 255, 0.5)',
                   ],
                   borderColor: [
-                    'rgba(51, 31, 0, 1)',
+                    'rgba(255, 255, 255, 1)',
                   ],
                   borderWidth: 1,
                 },
@@ -90,10 +90,10 @@ const initSleepState = {
             label: 'Hrs',
             data: [0, 8],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(255, 255, 255, 0.5)',
             ],
             borderColor: [
-              'rgba(51, 31, 0, 1)',
+              'rgba(255, 255, 255, 1)',
             ],
             borderWidth: 1,
           },
@@ -113,10 +113,10 @@ export function sleepProgress(state = initSleepState, action) {
                               state.dataSleep.datasets[0].data : action.unit === 'Hrs' ? 
                               [state.dataSleep.datasets[0].data[0]/60, state.dataSleep.datasets[0].data[1]/60] : [state.dataSleep.datasets[0].data[0]*60, state.dataSleep.datasets[0].data[1]*60],
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -132,10 +132,10 @@ export function sleepProgress(state = initSleepState, action) {
                         label: state.dataSleep.datasets[0].label,
                         data: [state.dataSleep.datasets[0].data[0] + Number(action.sleep), state.dataSleep.datasets[0].data[1]],
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -151,10 +151,10 @@ export function sleepProgress(state = initSleepState, action) {
                     label: state.dataSleep.datasets[0].label,
                     data: [Number(action.sleep), state.dataSleep.datasets[0].data[1]],
                     backgroundColor: [
-                      'rgba(51, 31, 0, 0.5)',
+                      'rgba(255, 255, 255, 0.5)',
                     ],
                     borderColor: [
-                      'rgba(51, 31, 0, 1)',
+                      'rgba(255, 255, 255, 1)',
                     ],
                     borderWidth: 1,
                   },
@@ -174,10 +174,10 @@ const initWaterState = {
             label: 'ml',
             data: [0, 2000],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(255, 255, 255, 0.5)',
             ],
             borderColor: [
-              'rgba(51, 31, 0, 1)',
+              'rgba(255, 255, 255, 1)',
             ],
             borderWidth: 1,
           },
@@ -197,10 +197,10 @@ export function waterProgress(state = initWaterState, action) {
                               state.dataWater.datasets[0].data : action.unit === 'l' ? 
                               [state.dataWater.datasets[0].data[0]/1000, state.dataWater.datasets[0].data[1]/1000] : [state.dataWater.datasets[0].data[0]*1000, state.dataWater.datasets[0].data[1]*1000],                        
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -216,10 +216,10 @@ export function waterProgress(state = initWaterState, action) {
                         label: state.dataWater.datasets[0].label,
                         data: [state.dataWater.datasets[0].data[0] + Number(action.water), state.dataWater.datasets[0].data[1]],                        
                         backgroundColor: [
-                          'rgba(51, 31, 0, 0.5)',
+                          'rgba(255, 255, 255, 0.5)',
                         ],
                         borderColor: [
-                          'rgba(51, 31, 0, 1)',
+                          'rgba(255, 255, 255, 1)',
                         ],
                         borderWidth: 1,
                       },
@@ -235,10 +235,10 @@ export function waterProgress(state = initWaterState, action) {
                     label: state.dataWater.datasets[0].label,
                     data: [Number(action.water), state.dataWater.datasets[0].data[1]],                        
                     backgroundColor: [
-                      'rgba(51, 31, 0, 0.5)',
+                      'rgba(255, 255, 255, 0.5)',
                     ],
                     borderColor: [
-                      'rgba(51, 31, 0, 1)',
+                      'rgba(255, 255, 255, 1)',
                     ],
                     borderWidth: 1,
                   },

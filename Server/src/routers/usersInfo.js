@@ -37,9 +37,10 @@ router.post('/usersInfo', function (req, res, next) {
 
 // Update
 router.post(
-  '/usersInfo/update',
+  '/usersInfo/:username',
   function (req, res, next) {
-    const { username, cal, sleep, water } = req.body;
+    const { username } = req.params;
+    const { cal, sleep, water } = req.body;
     if (!username || !cal || !sleep || !water) {
       const err = new Error('username, cal, sleep and water are required');
       err.status = 400;

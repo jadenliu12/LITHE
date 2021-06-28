@@ -8,7 +8,9 @@ import WaterBarChart from 'components/waterChart.jsx';
 import SleepBarChart from 'components/sleepChart.jsx';
 
 import {changeUnitCal, changeUnitSleep, changeUnitWater, updateData, setData} from 'states/userHome-actions.js';
+import {setAvatar} from 'states/avatar-actions.js';
 import {listUserInfo, updateNutrition} from 'api/userInfo.js';
+import {listUserAvatar} from 'api/userAvatar.js';
 
 import './userHome.css';
 
@@ -47,12 +49,25 @@ class UserHome extends React.Component {
                 for (var i=0; i < usersInfo.length; i++) {
                     if (usersInfo[i].username === this.props.username) {
                         this.props.dispatch(setData(usersInfo[i].calories, usersInfo[i].sleep, usersInfo[i].water));
+                        break;
                     }
                 }                
             })
             .catch((err) => {
                 console.error('Error listing users', err);
-            })        
+            })  
+        listUserAvatar()
+            .then((userAvatar) => {
+                for (var i=0; i < userAvatar.length; i++) {
+                    if (userAvatar[i].username === this.props.username) {
+                        this.props.dispatch(setAvatar(userAvatar[i].hair, userAvatar[i].eye, userAvatar[i].nose, userAvatar[i].mouth, userAvatar[i].body, userAvatar[i].gender));
+                        break;
+                    }
+                }        
+            }) 
+            .catch((err) => {
+                console.error('Error listing avatars', err);
+            })    
     }
 
     render() {
@@ -64,10 +79,8 @@ class UserHome extends React.Component {
                     <img className="eye" src={this.props.avatarEye}></img>
                     <img className="nose" src={this.props.avatarNose}></img>
                     <img className="mouth" src={this.props.avatarMouth}></img>
-                    <img className="womanBody" src="images/woman1.png"></img>
-                    {/* <img className="manBody" src="images/man1.png"></img> */}
-                    {/*  style={{display : this.props.avatarWomanBodySource === "" ? 'none' : 'block' }} this.props.avatarWomanBodySource */}
-                    {/* <img className="manBody" style={{display : this.props.avatarManBodySource === "" ? 'none' : 'block' }} src={this.props.avatarManBodySource}></img> */}
+                    <img className="womanBody" style={{display : this.props.avatarWomanBodySource === "" ? 'none' : 'block' }} src={this.props.avatarWomanBodySource}></img>                             
+                    <img className="manBody" style={{display : this.props.avatarManBodySource === "" ? 'none' : 'block' }} src={this.props.avatarManBodySource}></img>
                 </div>
                 <div className="input d-flex flex-wrap align-items-center justify-content-center"> 
                     <div className="userInfo">
@@ -130,10 +143,11 @@ class UserHome extends React.Component {
         const cal = document.getElementById("calInput");
         const water = document.getElementById("waterInput");
         const sleep = document.getElementById("SleepInput");
-        this.props.dispatch(updateData(cal.value, sleep.value, water.value));        
-        updateNutrition(this.props.username, this.props.dataCal.datasets[0].data[0] + Number(cal.value), 
-                        this.props.dataSleep.datasets[0].data[0] + Number(sleep.value), 
-                        this.props.dataWater.datasets[0].data[0] + Number(water.value)
+        this.props.dispatch(updateData(cal.value, sleep.value, water.value));           
+        updateNutrition(this.props.username, 
+                        (this.props.dataCal.datasets[0].label === 'KCal' ? this.props.dataCal.datasets[0].data[0] : this.props.dataCal.datasets[0].data[0]/1000) + (cal.value === '' ? 0 : this.props.dataCal.datasets[0].label === 'Cal' ? Number(cal.value)/1000 : Number(cal.value)), 
+                        (this.props.dataSleep.datasets[0].label === 'Hrs' ? this.props.dataSleep.datasets[0].data[0] : this.props.dataSleep.datasets[0].data[0]/60) + (sleep.value === '' ? 0 : this.props.dataSleep.datasets[0].label === 'Mins' ? Number(sleep.value)/60 : Number(sleep.value)), 
+                        (this.props.dataWater.datasets[0].label === 'ml' ? this.props.dataWater.datasets[0].data[0] : this.props.dataWater.datasets[0].data[0]*1000) + (water.value === '' ? 0 : this.props.dataWater.datasets[0].label === 'l' ? Number(water.value)*1000 : Number(water.value))
                         )
             .then((nutritionInfo) => {
                 console.log(nutritionInfo);

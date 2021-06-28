@@ -4,7 +4,11 @@
 }
 
 .main .text-info {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255);
+}
+
+.navbar-default .navbar-brand {
+    color: #d6d6d6;
 }
 
 .left-nav {
