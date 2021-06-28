@@ -19,7 +19,7 @@ function create(username, email) {
   const sql = `
         INSERT INTO users ($<this:name>)
         VALUES ($<username>, $<email>)
-        ON CONFLICT DO NOTHING
+        ON CONFLICT (username) DO NOTHING
         RETURNING *
     `;
   return db.one(sql, { username, email });
