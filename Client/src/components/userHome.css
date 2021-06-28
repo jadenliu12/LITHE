@@ -1,5 +1,6 @@
 .userHome .body {
     background-color: #F2F1E5;
+    display: inline-block;
 }
 
 .userHome .input {
@@ -35,12 +36,6 @@
     padding-top: 1.5rem;
 }
 
-.userHome .icon {
-    height: 8rem;
-    width: 8rem;
-    background-color: #9e835a;
-}
-
 .userHome .userInfo {
     padding-right: 8rem;
     text-align: center;
@@ -65,3 +60,64 @@
     padding: 5px 200px;
     cursor: pointer;
   }
+
+.userHome .icon {
+    display: inline-block;
+}
+  
+.userHome .hair {
+    margin-left: 14rem;
+    margin-right: auto;
+    position: absolute;
+    max-width: 250px;
+    object-fit: cover;
+}
+
+.userHome .eye {
+    margin-left: 315px;
+    margin-top: 100px;
+    max-width: 70px;
+    position: absolute;
+}
+
+.userHome .nose {
+    margin-left: 340px;
+    margin-right: auto;
+    margin-top: 130px;
+    max-width: 20px;
+    position: absolute;
+}
+
+.userHome .mouth {
+    margin-left: 320px;
+    margin-right: auto;
+    margin-top: 135px;
+    max-width: 65px;
+    position: absolute;
+}
+
+.userHome .background {
+    margin-left: 275px;
+    margin-right: auto;
+    margin-top: 171px;
+    width: 10rem;
+    position: absolute;
+    background-color: #49C3C8;
+}
+
+.userHome .womanBody {
+    margin-left: 275px;
+    margin-right: auto;
+    margin-top: 171px;
+    max-width: 150px;
+    position: absolute;
+    background-color: #49C3C8;
+}
+
+.userHome .manBody {
+    margin-left: 275px;
+    margin-right: auto;
+    margin-top: 172px;
+    max-width: 150px;
+    position: absolute;
+}

@@ -18,6 +18,14 @@ class UserHome extends React.Component {
         dataSleep: PropTypes.object,
         dataWater: PropTypes.object,
         username: PropTypes.string,
+
+        avatarHair: PropTypes.string,
+        avatarEye: PropTypes.string,
+        avatarNose: PropTypes.string,
+        avatarMouth: PropTypes.string,
+        avatarWomanBodySource: PropTypes.string,
+        avatarManBodySource: PropTypes.string,
+
         store: PropTypes.object,
         dispatch: PropTypes.func
       };
@@ -33,6 +41,7 @@ class UserHome extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props.avatarWomanBodySource);
         listUserInfo()
             .then((usersInfo) => {
                 for (var i=0; i < usersInfo.length; i++) {
@@ -49,9 +58,19 @@ class UserHome extends React.Component {
     render() {
         return (
             <div className="userHome">
+                <div className="icon">
+                    <div className="background"></div>
+                    <img className="hair" src={this.props.avatarHair}></img>
+                    <img className="eye" src={this.props.avatarEye}></img>
+                    <img className="nose" src={this.props.avatarNose}></img>
+                    <img className="mouth" src={this.props.avatarMouth}></img>
+                    <img className="womanBody" src="images/woman1.png"></img>
+                    {/* <img className="manBody" src="images/man1.png"></img> */}
+                    {/*  style={{display : this.props.avatarWomanBodySource === "" ? 'none' : 'block' }} this.props.avatarWomanBodySource */}
+                    {/* <img className="manBody" style={{display : this.props.avatarManBodySource === "" ? 'none' : 'block' }} src={this.props.avatarManBodySource}></img> */}
+                </div>
                 <div className="input d-flex flex-wrap align-items-center justify-content-center"> 
                     <div className="userInfo">
-                        <div className="icon"></div>
                         <div className="userName">Jaden</div>
                         <div className="userRank">Advanced</div>
                     </div>  
@@ -134,5 +153,6 @@ export default connect(state => ({
     ...state.calProgress,
     ...state.sleepProgress,
     ...state.waterProgress,
+    ...state.avatar,
     username: state.auth.username
   }))(UserHome);
