@@ -14,7 +14,7 @@
 }
 
 .aboutUs .row > div {
-    background-color: lightblue;
+    background-color: rgba(132, 146, 166, 0.5);
     max-width: 11rem;
     height: 15rem;
     margin-left: 3rem;

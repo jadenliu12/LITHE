@@ -1,3 +1,7 @@
+.userHome {
+    margin-top: 4rem;
+}
+
 .userHome .body {
     background-color: #F2F1E5;
 }
@@ -53,7 +57,7 @@
 }
 
 .userHome .button {
-    background-color: #7a5f35;
+    background-color: #47525E;
     border: none;
     border-radius: 0.5rem;
     color: white;
@@ -65,3 +69,9 @@
     padding: 5px 200px;
     cursor: pointer;
   }
+
+.userHome .button:hover {
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
+}

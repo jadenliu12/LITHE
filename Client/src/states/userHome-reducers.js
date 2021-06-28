@@ -6,7 +6,7 @@ const initCalorieState = {
             label: 'KCal',
             data: [1000, 2200],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(169, 141, 140, 255)',
             ],
             borderColor: [
               'rgba(51, 31, 0, 1)',
@@ -71,7 +71,7 @@ const initSleepState = {
             label: 'Hrs',
             data: [3, 8],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(81,130,100, 0.4)',
             ],
             borderColor: [
               'rgba(51, 31, 0, 1)',
@@ -136,7 +136,7 @@ const initWaterState = {
             label: 'ml',
             data: [1000, 2000],
             backgroundColor: [
-              'rgba(51, 31, 0, 0.5)',
+              'rgba(132, 146, 166, 0.5)',
             ],
             borderColor: [
               'rgba(51, 31, 0, 1)',

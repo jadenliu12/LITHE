@@ -75,7 +75,7 @@ class Authentication extends React.Component {
                     this.props.formType === 'signIn' && (
                         <div className="form-container">
                             <Form className="sign-form">
-                                <h1 className="text-info">Lithe.</h1>
+                                <h1 className="text-info">Lithe</h1>
                                 <h3 className="text-center">Welcome</h3>
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>

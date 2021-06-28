@@ -60,15 +60,27 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #9fdbf5;
+    border-color: #8492A6;
+    background-color: #Bac6c6;
     font-size: 1.5rem;
 }
 
 .generateAvatar .submitButton {
-    width: 20rem;
-    height: 5rem;
+    width: 10rem;
+    height: 4rem;
     margin: 1rem;
     border-radius: 1rem;
-    background-color: #1da2db;
+    border-color: black;
+    border-width: 0.01rem;
+    background-color: rgba(213,90,57);
     font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.generateAvatar .generateButton:hover,
+.generateAvatar .submitButton:hover{
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
 }

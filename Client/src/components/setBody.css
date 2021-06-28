@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     object-fit: fill;
-    background-color: #49C3C8;
+    background-color: rgba(132, 146, 166, 0.5);
     border: solid;
     border-color: black;
     border-width: 5px;
@@ -76,7 +76,7 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #9fdbf5;
+    background-color: rgba(140,193,193,255);
     font-size: 1.5rem;
 }
 
@@ -85,15 +85,24 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #e374b5;
+    background-color: rgba(213,90,57,255)
+    ;
     font-size: 1.5rem;
 }
 
 .generateBody .submitButton {
-    width: 20rem;
-    height: 5rem;
+    width: 6rem;
+    height: 3.5rem;
     margin: 1rem;
     border-radius: 1rem;
-    background-color: #1da2db;
+    /* background-color: rgba(132, 146, 166, 0.7); */
     font-size: 1.5rem;
+}
+
+.generateBody .submitButton:hover,
+.generateBody .femaleButton:hover,
+.generateBody .maleButton:hover {
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
 }

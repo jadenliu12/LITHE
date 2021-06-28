@@ -16,6 +16,10 @@
     margin: 10px 0;
 }
 
+.form-container .text-info{
+    text-align: center;
+}
+
 .link {
     cursor: pointer;
 }
