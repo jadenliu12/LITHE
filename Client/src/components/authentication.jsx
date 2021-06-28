@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import {connect} from 'react-redux';
 
-import UserHome from 'components/userHome.jsx';
+import AvatarGenerator from 'components/generateAvatar.jsx';
 import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot} from 'states/auth-actions.js';
 import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPassword, updateWarningEmail, updateWarningMessage} from 'states/auth-actions.js';
 
@@ -229,7 +229,7 @@ class Authentication extends React.Component {
                 {
                     this.props.formType === 'signedIn' && (
                         <div className="form-container">
-                            <UserHome />                            
+                            <AvatarGenerator />                            
                         </div>
                     )
                 }                             
