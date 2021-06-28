@@ -109,7 +109,7 @@ class AvatarGenerator extends React.Component {
     }
 
     sendToServer() {
-        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.avatarBodySource, this.gender)            
+        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.avatarBodySource, this.props.gender)            
             .then(() => {
                 listUserAvatar()
                     .then((usersAvatar) => {
