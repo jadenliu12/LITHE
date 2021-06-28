@@ -21,8 +21,9 @@ router.get('/usersInfo', function (req, res, next) {
 // Create
 router.post('/usersInfo', function (req, res, next) {
   const { username, weight, height, calories, water, sleep } = req.body;
+  console.log(req.body);
   if (!username || !weight || !height || !calories || !water || !sleep) {
-    const err = new Error('username, password and email required');
+    const err = new Error('username, weight, height, calories, water and sleep required');
     err.status = 400;
     throw err;
   }
