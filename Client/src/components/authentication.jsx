@@ -5,7 +5,8 @@ import {
     Form,
     FormGroup,
     Label,
-    Input
+    Input,
+    Alert
 } from "reactstrap";
 import {connect} from 'react-redux';
 
@@ -16,6 +17,7 @@ import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPasswo
 import { Auth } from 'aws-amplify';
 
 import './authentication.css';
+import { combineReducers } from 'redux';
 
 class Authentication extends React.Component {
     static propTypes = {    
@@ -95,8 +97,8 @@ class Authentication extends React.Component {
                                     <div className="text-center">
                                         <a className="link" onClick={this.connectForgot}>Forget your password?</a>
                                     </div>
-                                </div>
-                            </Form>                                                                                                                 
+                                </div>                                
+                            </Form>
                         </div>
                     )
                 }                 
@@ -196,7 +198,7 @@ class Authentication extends React.Component {
                                     <div className="text-center">
                                         <span>Already have an account? </span><a className="link" onClick={this.connectSignIn}>sign in</a>
                                     </div>
-                                </div>                                                           
+                                </div>                                             
                             </Form>                                                                                                            
                         </div>
                     )
