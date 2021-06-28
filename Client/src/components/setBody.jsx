@@ -85,6 +85,9 @@ class SetBody extends React.Component {
     onChange(e) {
         e.persist();        
         this.props.dispatch(onChange(e.target.name, Number(e.target.value)));
+        if(this.props.height >= 100 && this.props.weight > 0) {
+            this.setBody();
+        }
     }
 
     signIn() {
