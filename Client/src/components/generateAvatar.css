@@ -55,21 +55,29 @@
 }
 
 .generateAvatar .mouth {
-    margin-left: 210px;
+    margin-left: 215px;
     margin-right: auto;
-    margin-top: 135px;
-    max-width: 65px;
+    margin-top: 142px;
+    max-width: 50px;
     position: absolute;
 }
-
-.generateAvatar .body {
-    margin-left: 165px;
+.generateAvatar .womanBody {
+    margin-left: 163px;
     margin-right: auto;
-    margin-top: 173px;
+    margin-top: 171px;
     max-width: 150px;
     position: absolute;
+    /* display: none; */
 }
 
+.generateAvatar .manBody {
+    margin-left: 170px;
+    margin-right: auto;
+    margin-top: 172px;
+    max-width: 150px;
+    position: absolute;
+    /* display: block; */
+}
 .generateAvatar .buttons {
     display: inline-block;
     height: 100%;

@@ -39,3 +39,15 @@ export function changeManBody(manBodyNumber) {
         manBodyNumber
     };
 }
+
+export function deleteWomanBody() {
+    return {
+        type: '@AVATAR/DELETE_AVATAR_BODY_WOMAN',
+    };
+}
+
+export function deleteManBody() {
+    return {
+        type: '@AVATAR/DELETE_AVATAR_BODY_MAN',
+    };
+}
