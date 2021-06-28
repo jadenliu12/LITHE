@@ -4,7 +4,7 @@ const initCalorieState = {
         datasets: [
           {
             label: 'KCal',
-            data: [1000, 2200],
+            data: [0, 2200],
             backgroundColor: [
               'rgba(51, 31, 0, 0.5)',
             ],
@@ -57,7 +57,26 @@ export function calProgress(state = initCalorieState, action) {
                       },
                     ],  
                 }                   
-            };                                                                            
+            };  
+        case '@USER_HOME/SET_DATA':
+          return {
+            dataCal: {
+              labels: [''],
+              datasets: [
+                {
+                  label: state.dataCal.datasets[0].label,
+                  data: [Number(action.cal), state.dataCal.datasets[0].data[1]],
+                  backgroundColor: [
+                    'rgba(51, 31, 0, 0.5)',
+                  ],
+                  borderColor: [
+                    'rgba(51, 31, 0, 1)',
+                  ],
+                  borderWidth: 1,
+                },
+              ],  
+            }                   
+          };                                                                                    
         default:
             return state;
     }
@@ -69,7 +88,7 @@ const initSleepState = {
         datasets: [
           {
             label: 'Hrs',
-            data: [3, 8],
+            data: [0, 8],
             backgroundColor: [
               'rgba(51, 31, 0, 0.5)',
             ],
@@ -122,7 +141,26 @@ export function sleepProgress(state = initSleepState, action) {
                       },
                     ],
                 }                  
-            };                                                                            
+            }; 
+        case '@USER_HOME/SET_DATA':
+            return {
+              dataSleep: {
+                labels: [''],
+                datasets: [
+                  {
+                    label: state.dataSleep.datasets[0].label,
+                    data: [Number(action.sleep), state.dataSleep.datasets[0].data[1]],
+                    backgroundColor: [
+                      'rgba(51, 31, 0, 0.5)',
+                    ],
+                    borderColor: [
+                      'rgba(51, 31, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                  },
+                ],
+              }                  
+            };           
         default:
             return state;
     }    
@@ -134,7 +172,7 @@ const initWaterState = {
         datasets: [
           {
             label: 'ml',
-            data: [1000, 2000],
+            data: [0, 2000],
             backgroundColor: [
               'rgba(51, 31, 0, 0.5)',
             ],
@@ -187,7 +225,26 @@ export function waterProgress(state = initWaterState, action) {
                       },
                     ], 
                 }                    
-            };                                                                            
+            };
+        case '@USER_HOME/SET_DATA':
+            return {
+              dataWater: {
+                labels: [''],
+                datasets: [
+                  {
+                    label: state.dataWater.datasets[0].label,
+                    data: [Number(action.water), state.dataWater.datasets[0].data[1]],                        
+                    backgroundColor: [
+                      'rgba(51, 31, 0, 0.5)',
+                    ],
+                    borderColor: [
+                      'rgba(51, 31, 0, 1)',
+                    ],
+                    borderWidth: 1,
+                  },
+                ], 
+              }                    
+            };                                                                                                  
         default:
             return state;
     }    

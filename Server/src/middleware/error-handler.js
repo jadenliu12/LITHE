@@ -10,5 +10,5 @@ module.exports = function(err, req, res, next) {
     });
 
     res.sendStatus(err.status ? err.status : 500);
-    // next(err);
+    next(err);
 };

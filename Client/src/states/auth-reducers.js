@@ -48,7 +48,7 @@ export function auth(state = initAuthState, action) {
         case '@AUTH/AVATAR_GENERATOR':
             return {
                 ...state,
-                formType: 'avatarGenerator'
+                formType: 'avatarGeneration'
             };  
                                 
         case '@AUTH/FORGOT_PASS':

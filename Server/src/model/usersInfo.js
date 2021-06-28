@@ -8,19 +8,19 @@ if (!global.db) {
     const sql = `
           SELECT *
           FROM usersinfo      
-          ORDER BY user_id DESC
+          ORDER BY username DESC
           LIMIT 10
       `;
     return db.any(sql);
   }
   
-  function create(user_id, weight, height, calories, water, sleep) {
+  function create(username, weight, height) {
     const sql = `
           INSERT INTO usersinfo ($<this:name>)
-          VALUES ($<user_id>, $<weight>, $<height>, $<calories>, $<water>, $<sleep>)
+          VALUES ($<username>, $<weight>, $<height>)
           RETURNING *
       `;
-    return db.one(sql, { user_id, weight, height, calories, water, sleep });
+    return db.one(sql, { username, weight, height});
   }
   
   module.exports = {
