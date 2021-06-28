@@ -35,7 +35,6 @@ class AvatarGenerator extends React.Component {
         this.generateMouth = this.generateMouth.bind(this);
         this.generateWomanBody = this.generateWomanBody.bind(this);
         this.generateManBody = this.generateManBody.bind(this);
-        this.sendToServer = this.sendToServer.bind(this);
     }   
 
     componentDidMount() {
