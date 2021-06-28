@@ -17,14 +17,14 @@ export function listUserInfo() {
 }
 
 
-export function createUserInfo(user_id, weight, height, calories, water, sleep) {
+export function createUserInfo(username, weight, height, calories, water, sleep) {
   let url = `${userInfoBaseUrl}/usersInfo`;
 
   console.log(`Making POST request to: ${url}`);
 
   return axios
     .post(url, {
-      user_id,
+      username,
       weight,
       height,
       calories,

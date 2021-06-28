@@ -273,19 +273,6 @@ class Authentication extends React.Component {
         Auth.currentAuthenticatedUser()
             .then((user) => {  
                 this.props.dispatch(checkUser(user.attributes.email, user.email));
-                createUser(user.username, user.attributes.email)
-                    .then(() => {
-                        listUser()
-                            .then((users) => {
-                                console.log(users);
-                            })
-                            .catch((err) => {
-                                console.error('Error listing users', err);
-                            })
-                    })
-                    .catch((err) => {
-                        console.error('Error creating user', err);
-                    })
             })
             .catch(user => this.props.dispatch(signIn()));
     }

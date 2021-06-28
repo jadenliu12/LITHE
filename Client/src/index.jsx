@@ -8,7 +8,8 @@ import Main from 'components/Main.jsx';
 import {auth, authWarn} from 'states/auth-reducers.js';
 import {calProgress, sleepProgress, waterProgress} from 'states/userHome-reducers.js';
 import {main} from 'states/main-reducers.js';
-import {avatar} from 'states/avatar-reducer.js';
+import {avatar} from 'states/avatar-reducers.js';
+import {userInfo} from 'states/userInfo-reducers.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -24,6 +25,7 @@ window.onload = function () {
     calProgress, sleepProgress, waterProgress,
     main,
     avatar,
+    userInfo,
   }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 
   ReactDOM.render(

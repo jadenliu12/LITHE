@@ -8,19 +8,19 @@ if (!global.db) {
     const sql = `
           SELECT *
           FROM usersavatar      
-          ORDER BY user_id DESC
+          ORDER BY username DESC
           LIMIT 10
       `;
     return db.any(sql);
   }
   
-  function create(user_id, hair, eye, nose, mouth, body) {
+  function create(username, hair, eye, nose, mouth, body) {
     const sql = `
           INSERT INTO usersavatar ($<this:name>)
-          VALUES ($<user_id>, $<hair>, $<eye>, $<nose>, $<mouth>, $<body>)
+          VALUES ($<username>, $<hair>, $<eye>, $<nose>, $<mouth>, $<body>)
           RETURNING *
       `;
-    return db.one(sql, { user_id, hair, eye, nose, mouth, body });
+    return db.one(sql, { username, hair, eye, nose, mouth, body });
   }
   
   module.exports = {
