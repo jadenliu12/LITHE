@@ -16,6 +16,7 @@ class AvatarGenerator extends React.Component {
         avatarMouth: PropTypes.string,
         avatarWomanBodySource: PropTypes.string,
         avatarManBodySource: PropTypes.string,
+        gender: PropTypes.bool,
         username: PropTypes.string,
         store: PropTypes.object,
         dispatch: PropTypes.func
@@ -28,6 +29,7 @@ class AvatarGenerator extends React.Component {
         this.avatarEyesNum = 1;
         this.avatarNoseNum = 1;
         this.avatarMouthNum = 1;
+        this.gender = true;
 
         this.generateHair = this.generateHair.bind(this);
         this.generateEyes = this.generateEyes.bind(this);
@@ -107,7 +109,7 @@ class AvatarGenerator extends React.Component {
     }
 
     sendToServer() {
-        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.avatarBodySource)            
+        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.gender ? this.props.avatarWomanBodySource : this.props.avatarManBodySource, this.props.gender)            
             .then(() => {
                 listUserAvatar()
                     .then((usersAvatar) => {

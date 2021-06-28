@@ -25,7 +25,8 @@ const schemaSql = `
       eye        VARCHAR ( 50 ) NOT NULL,
       nose       VARCHAR ( 50 ) NOT NULL,
       mouth      VARCHAR ( 50 ) NOT NULL,
-      body       VARCHAR ( 50 ) NOT NULL      
+      body       VARCHAR ( 50 ) NOT NULL,
+      gender     boolean NOT NULL      
     );
 
     CREATE TABLE friends (

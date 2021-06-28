@@ -96,14 +96,14 @@
     position: absolute;
 }
 
-.userHome .background {
+/* .userHome .background {
     margin-left: 275px;
     margin-right: auto;
     margin-top: 171px;
     width: 10rem;
     position: absolute;
     background-color: #49C3C8;
-}
+} */
 
 .userHome .womanBody {
     margin-left: 275px;
@@ -111,7 +111,6 @@
     margin-top: 171px;
     max-width: 150px;
     position: absolute;
-    background-color: #49C3C8;
 }
 
 .userHome .manBody {

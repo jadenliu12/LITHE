@@ -51,3 +51,10 @@ export function deleteManBody() {
         type: '@AVATAR/DELETE_AVATAR_BODY_MAN',
     };
 }
+
+export function setAvatar(hair, eye, nose, mouth, body, gender) {
+    return {
+        type: '@AVATAR/SET_AVATAR',
+        hair, eye, nose, mouth, body, gender
+    };
+}
