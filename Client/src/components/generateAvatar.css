@@ -4,58 +4,79 @@
     grid-gap: 2rem;
 }
 
-.generateAvatar .canvas {
+.generateAvatar .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.generateAvatar .canvasContainer {
+    display: inline-block;
+}
+
+.generateAvatar .canvas {    
     margin-left: auto;
     margin-right: auto;
     margin-top: 2rem;
     width: 30rem;
-    height: 30rem;
+    height: 35rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     object-fit: fill;
-}
-
-.generateAvatar .hair {
+    background-color: #49C3C8;
     border: solid;
     border-color: black;
     border-width: 5px;
+}
+
+.generateAvatar .hair {
+    margin-left: 7rem;
+    margin-right: auto;
     position: absolute;
+    max-width: 250px;
     object-fit: cover;
 }
 
 .generateAvatar .eye {
-    margin-left: 160px;
+    margin-left: 205px;
     margin-right: auto;
-    margin-top: 150px;
-    max-width: 150px;
-    position: absolute;
-}
-
-.generateAvatar .nose {
-    margin-left: 215px;
-    margin-right: auto;
-    margin-top: 14rem;
-    max-width: 35px;
-    position: absolute;
-}
-
-.generateAvatar .mouth {
-    margin-left: 200px;
-    margin-right: auto;
-    margin-top: 260px;
+    margin-top: 100px;
     max-width: 70px;
     position: absolute;
 }
 
-.generateAvatar .userName {
-    margin-left: 200px;
+.generateAvatar .nose {
+    margin-left: 230px;
     margin-right: auto;
-    margin-top: 350px;
-    font-size: 1.5rem;
+    margin-top: 130px;
+    max-width: 20px;
     position: absolute;
 }
 
+.generateAvatar .mouth {
+    margin-left: 210px;
+    margin-right: auto;
+    margin-top: 135px;
+    max-width: 65px;
+    position: absolute;
+}
+
+.generateAvatar .body {
+    margin-left: 165px;
+    margin-right: auto;
+    margin-top: 173px;
+    max-width: 150px;
+    position: absolute;
+}
+
+.generateAvatar .buttons {
+    display: inline-block;
+    height: 100%;
+}
+
 .generateAvatar .generateButton {
+    display: block;
     width: 7rem;
     height: 3rem;
     margin: 1rem;
@@ -64,11 +85,30 @@
     font-size: 1.5rem;
 }
 
-.generateAvatar .submitButton {
-    width: 20rem;
-    height: 5rem;
+.generateAvatar .maleButton {
+    width: 7rem;
+    height: 3rem;
     margin: 1rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
+    background-color: #9fdbf5;
+    font-size: 1.5rem;
+}
+
+.generateAvatar .femaleButton {
+    width: 7rem;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 2rem;
+    background-color: #e374b5;
+    font-size: 1.5rem;
+}
+
+.generateAvatar .submitButton {    
+    width: 10rem;
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 2rem;
     background-color: #1da2db;
     font-size: 1.5rem;
+    color: #000000;
 }

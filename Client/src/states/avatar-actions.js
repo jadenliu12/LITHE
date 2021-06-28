@@ -25,3 +25,17 @@ export function changeMouth(mouthNum) {
         mouthNum
     };
 }
+
+export function changeWomanBody(womanBodyNumber) {
+    return {
+        type: '@AVATAR/CHANGE_AVATAR_BODY_WOMAN',
+        womanBodyNumber
+    };
+}
+
+export function changeManBody(manBodyNumber) {
+    return {
+        type: '@AVATAR/CHANGE_AVATAR_BODY_MAN',
+        manBodyNumber
+    };
+}

@@ -38,6 +38,12 @@ export function confirmSignUp() {
     };        
 }
 
+export function avatarGenerator() {
+    return {
+        type: '@AUTH/AVATAR_GENERATOR',
+    };        
+}
+
 export function forgotPassword() {
     return {
         type: '@AUTH/FORGOT_PASS',

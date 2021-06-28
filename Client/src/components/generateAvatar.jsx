@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
-import {changeHair, changeEyes, changeNose, changeMouth} from 'states/avatar-actions.js';
-import {setHair, setEyes, setNose, setMouth} from 'states/setbody-actions.js';
+import {changeHair, changeEyes, changeNose, changeMouth, changeWomanBody, changeManBody} from 'states/avatar-actions.js';
 
 import './generateAvatar.css';
 
@@ -13,12 +12,7 @@ class AvatarGenerator extends React.Component {
         avatarEye: PropTypes.string,
         avatarNose: PropTypes.string,
         avatarMouth: PropTypes.string,
-        
-        avatarHairSource: PropTypes.string,
-        avatarEyeSource: PropTypes.string,
-        avatarNoseSource: PropTypes.string,
-        avatarMouthSource: PropTypes.string,
-
+        avatarBodySource: PropTypes.string,
         store: PropTypes.object,
         dispatch: PropTypes.func
       };    
@@ -35,21 +29,45 @@ class AvatarGenerator extends React.Component {
         this.generateEyes = this.generateEyes.bind(this);
         this.generateNose = this.generateNose.bind(this);
         this.generateMouth = this.generateMouth.bind(this);
-
-        this.generateAvatar = this.generateAvatar.bind(this);
+        this.generateWomanBody = this.generateWomanBody.bind(this);
+        this.generateManBody = this.generateManBody.bind(this);
     }   
 
     componentDidMount() {
         console.log('Mount Generate Avatar');
-        this.generateHair();
-        this.generateEyes();
-        this.generateNose();
-        this.generateMouth();
-        this.generateAvatar();
     }
 
     componentWillUnmount() {
         console.log('Unmount Generate Avatar')
+    }
+
+    render() {
+        return (
+            <div className="generateAvatar">
+                <div className="top">
+                    <div className="canvasContainer">
+                        <div className="canvas">
+                            <img className="hair" src={this.props.avatarHair}></img>
+                            <img className="eye" src={this.props.avatarEye}></img>
+                            <img className="nose" src={this.props.avatarNose}></img>
+                            <img className="mouth" src={this.props.avatarMouth}></img>
+                            <img className="body" src={this.props.avatarBodySource}></img>                             
+                        </div>
+                    </div>
+                    <div className="buttons">
+                        <button className="generateButton" onClick={this.generateHair}>Hair</button>
+                        <button className="generateButton" onClick={this.generateEyes}>Eyes</button>
+                        <button className="generateButton" onClick={this.generateNose}>Nose</button>
+                        <button className="generateButton" onClick={this.generateMouth}>Mouth</button>
+                    </div>
+                </div>
+                <div className="gender">
+                    <button className="femaleButton" onClick={this.generateWomanBody}>Female</button>
+                    <button className="maleButton" onClick={this.generateManBody}>Male</button>
+                    <button className="submitButton"><Link to="/set-body">Generate!</Link></button>
+                </div>                
+            </div>
+        );
     }
 
     generateHair() {
@@ -70,44 +88,17 @@ class AvatarGenerator extends React.Component {
     generateMouth() {
         this.avatarMouthNum = (this.avatarMouthNum === 3 ? 1 : this.avatarMouthNum += 1);
         this.props.dispatch(changeMouth(this.avatarMouthNum));
+    } 
+
+    generateWomanBody() {
+        this.props.dispatch(changeWomanBody(1));
     }
 
-    generateAvatar() {
-        this.props.dispatch(setHair(this.avatarHairNum));
-        this.props.dispatch(setEyes(this.avatarEyesNum));
-        this.props.dispatch(setNose(this.avatarNoseNum));
-        this.props.dispatch(setMouth(this.avatarMouthNum));
-        console.log(this.avatarHairNum);
-        console.log(this.avatarEyesNum);
-        console.log(this.avatarNoseNum);
-        console.log(this.avatarMouthNum);
-    }
-
-    render() {
-        return (
-            // <Router>
-            <div className="generateAvatar">
-                <div className="canvas">
-                    <img className="hair" src={this.props.avatarHair}></img>
-                    <img className="eye" src={this.props.avatarEyes}></img>
-                    <img className="nose" src={this.props.avatarNose}></img>
-                    <img className="mouth" src={this.props.avatarMouth}></img>
-                    <div className="userName">Name</div>
-                </div>
-                <div className="buttons">
-                    <button className="generateButton" onClick={this.generateHair}>Hair</button>
-                    <button className="generateButton" onClick={this.generateEyes}>Eyes</button>
-                    <button className="generateButton" onClick={this.generateNose}>Nose</button>
-                    <button className="generateButton" onClick={this.generateMouth}>Mouth</button>
-                </div>
-                <button className="submitButton" onClick={this.generateAvatar}>Generate!</button>
-            </div>
-            // </Router>
-        );
+    generateManBody() {
+        this.props.dispatch(changeManBody(1));
     }
 }
 
 export default connect(state => ({
     ...state.avatar,
-    ...state.setBody
 }))(AvatarGenerator);

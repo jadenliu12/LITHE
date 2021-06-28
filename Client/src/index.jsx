@@ -9,7 +9,6 @@ import {auth, authWarn} from 'states/auth-reducers.js';
 import {calProgress, sleepProgress, waterProgress} from 'states/userHome-reducers.js';
 import {main} from 'states/main-reducers.js';
 import {avatar} from 'states/avatar-reducer.js';
-import {setBody} from 'states/setbody-reducer.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -25,7 +24,6 @@ window.onload = function () {
     calProgress, sleepProgress, waterProgress,
     main,
     avatar,
-    setBody,    
   }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 
   ReactDOM.render(
