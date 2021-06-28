@@ -22,7 +22,7 @@ function create(username, email) {
         ON CONFLICT (username) DO NOTHING
         RETURNING *
     `;
-  return db.one(sql, { username, email });
+  return db.oneOrNone(sql, { username, email });
 }
 
 module.exports = {
