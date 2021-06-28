@@ -23,7 +23,6 @@ import Statistics from 'components/statistics.jsx';
 import Group from 'components/group.jsx';
 import Competition from 'components/Competition.jsx';
 
-import Group from 'components/group.jsx'
 import AvatarGenerator from 'components/generateAvatar.jsx'
 import SetBody from 'components/setBody.jsx'
 
