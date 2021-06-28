@@ -14,6 +14,8 @@ import UserHome from 'components/userHome.jsx';
 import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot} from 'states/auth-actions.js';
 import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPassword, updateWarningEmail, updateWarningMessage} from 'states/auth-actions.js';
 
+import {createUser, listUser} from 'api/user.js';
+
 import { Auth } from 'aws-amplify';
 
 import './authentication.css';
@@ -262,7 +264,22 @@ class Authentication extends React.Component {
 
     checkUser() {          
         Auth.currentAuthenticatedUser()
-            .then(user =>  this.props.dispatch(checkUser(user.attributes.email, user.email)))
+            .then((user) => {  
+                this.props.dispatch(checkUser(user.attributes.email, user.email));
+                createUser(user.username, user.attributes.email)
+                    .then(() => {
+                        listUser()
+                            .then((users) => {
+                                console.log(users);
+                            })
+                            .catch((err) => {
+                                console.error('Error listing users', err);
+                            })
+                    })
+                    .catch((err) => {
+                        console.error('Error creating user', err);
+                    })
+            })
             .catch(user => this.props.dispatch(signIn()));
     }
 
@@ -334,10 +351,22 @@ class Authentication extends React.Component {
 
     signIn() {    
         Auth.signIn(this.props.username, this.props.password)
-        .then(fulfilled => {
+        .then(user => {
             console.log("fulfilled:");
-            console.log(fulfilled);
             this.props.dispatch(signedIn());
+            createUser(user.username, user.attributes.email)
+            .then(() => {
+                listUser()
+                    .then((users) => {
+                        console.log(users);
+                    })
+                    .catch((err) => {
+                        console.error('Error listing users', err);
+                    })
+            })
+            .catch((err) => {
+                console.error('Error creating user', err);
+            })            
         })
         .catch(error => {
             this.props.dispatch(updateWarningUsername(true));
