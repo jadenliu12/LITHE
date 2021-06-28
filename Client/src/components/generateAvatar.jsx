@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
-import {changeHair, changeEyes, changeNose, changeMouth, changeWomanBody, changeManBody} from 'states/avatar-actions.js';
+import {changeHair, changeEyes, changeNose, changeMouth, changeWomanBody, changeManBody, deleteWomanBody, deleteManBody} from 'states/avatar-actions.js';
 
 import {createUserAvatar, listUserAvatar} from 'api/userAvatar.js';
 
@@ -14,7 +14,8 @@ class AvatarGenerator extends React.Component {
         avatarEye: PropTypes.string,
         avatarNose: PropTypes.string,
         avatarMouth: PropTypes.string,
-        avatarBodySource: PropTypes.string,
+        avatarWomanBodySource: PropTypes.string,
+        avatarManBodySource: PropTypes.string,
         username: PropTypes.string,
         store: PropTypes.object,
         dispatch: PropTypes.func
@@ -55,7 +56,8 @@ class AvatarGenerator extends React.Component {
                             <img className="eye" src={this.props.avatarEye}></img>
                             <img className="nose" src={this.props.avatarNose}></img>
                             <img className="mouth" src={this.props.avatarMouth}></img>
-                            <img className="body" src={this.props.avatarBodySource}></img>                             
+                            <img className="womanBody" src={this.props.avatarWomanBodySource}></img>
+                            <img className="manBody" src={this.props.avatarManBodySource}></img>                                                         
                         </div>
                     </div>
                     <div className="buttons">
@@ -96,10 +98,12 @@ class AvatarGenerator extends React.Component {
 
     generateWomanBody() {
         this.props.dispatch(changeWomanBody(1));
+        this.props.dispatch(deleteManBody());
     }
 
     generateManBody() {
         this.props.dispatch(changeManBody(1));
+        this.props.dispatch(deleteWomanBody());
     }
 
     sendToServer() {

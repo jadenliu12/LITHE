@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
+import {changeWomanBody, changeManBody, deleteWomanBody, deleteManBody} from 'states/avatar-actions.js';
+
 
 import {signIn} from 'states/auth-actions.js';
 import {onChange} from 'states/userInfo-actions.js';
@@ -16,7 +18,8 @@ class SetBody extends React.Component {
         avatarEye: PropTypes.string,
         avatarNose: PropTypes.string,
         avatarMouth: PropTypes.string,
-        avatarBodySource: PropTypes.string,
+        avatarWomanBodySource: PropTypes.string,
+        avatarManBodySource: PropTypes.string,
         username: PropTypes.string,
         height: PropTypes.number,
         weight: PropTypes.number,
@@ -26,6 +29,10 @@ class SetBody extends React.Component {
 
     constructor(props) {
         super(props);
+        this.avatarBodyNum = 1;
+        this.userBMI = 0;
+
+        this.setBody = this.setBody.bind(this);
 
         this.signIn = this.signIn.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -39,6 +46,20 @@ class SetBody extends React.Component {
         console.log('Unmount Set Body')
     }
  
+    setBody() {
+        if(this.props.avatarWomanBodySource === "") {
+            this.userBMI = ((this.weight) / (((this.height)/100)*((this.height)/100)));
+            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI <= 29.9) ? 3 : 4);
+            this.props.dispatch(changeManBody(this.avatarBodyNum));
+        }
+
+        else if(this.props.avatarManBodySource === "") {
+            this.userBMI = ((this.weight) / (((this.height)/100)*((this.height)/100)));
+            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI <= 29.9) ? 3 : 4);
+            this.props.dispatch(changeWomanBody(this.avatarBodyNum));
+        }
+    }
+
     render() {
         return (
             <div className="generateBody">
@@ -47,7 +68,8 @@ class SetBody extends React.Component {
                     <img className="eye" src={this.props.avatarEye}></img>
                     <img className="nose" src={this.props.avatarNose}></img>
                     <img className="mouth" src={this.props.avatarMouth}></img>
-                    <img className="body" src={this.props.avatarBodySource}></img>
+                    <img className="womanBody" style={{display : this.props.avatarWomanBodySource === "" ? 'none' : 'block' }} src={this.props.avatarWomanBodySource}></img>
+                    <img className="manBody" style={{display : this.props.avatarManBodySource === "" ? 'none' : 'block' }} src={this.props.avatarManBodySource}></img>
                 </div>
                 <div className="inputBody">
                     <div className="inputBox">
