@@ -14,13 +14,13 @@ if (!global.db) {
     return db.any(sql);
   }
   
-  function create(username, hair, eye, nose, mouth, body) {
+  function create(username, hair, eye, nose, mouth, body, gender) {
     const sql = `
           INSERT INTO usersavatar ($<this:name>)
-          VALUES ($<username>, $<hair>, $<eye>, $<nose>, $<mouth>, $<body>)
+          VALUES ($<username>, $<hair>, $<eye>, $<nose>, $<mouth>, $<body>, $<gender>)
           RETURNING *
       `;
-    return db.one(sql, { username, hair, eye, nose, mouth, body });
+    return db.one(sql, { username, hair, eye, nose, mouth, body, gender });
   }
   
   module.exports = {

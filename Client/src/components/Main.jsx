@@ -73,12 +73,7 @@ class Main extends React.Component {
                         <NavLink tag={Link} to="/">
                           Home
                         </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink tag={Link} to="/about-us">
-                          About Us
-                        </NavLink>
-                      </NavItem>                  
+                      </NavItem>                 
                       <NavItem>
                         <NavLink tag={Link} to="/sign-in">
                           Sign In
@@ -135,14 +130,7 @@ class Main extends React.Component {
             render={() => (
               <Home/>
             )}
-          />
-          <Route
-            exact
-            path="/about-us"
-            render={() => (
-              <AboutUs/>
-            )}
-          />          
+          />         
           <Route
             exact
             path="/sign-in"
