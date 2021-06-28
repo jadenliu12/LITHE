@@ -20,15 +20,15 @@ router.get('/usersInfo', function (req, res, next) {
 
 // Create
 router.post('/usersInfo', function (req, res, next) {
-  const { username, weight, height, calories, water, sleep } = req.body;
+  const { username, weight, height } = req.body;
   console.log(req.body);
-  if (!username || !weight || !height || !calories || !water || !sleep) {
-    const err = new Error('username, weight, height, calories, water and sleep required');
-    err.status = 400;
+  if (!username || !weight || !height) {
+    const err = new Error('username, weight, height required');
+    err.status = 400; 
     throw err;
   }
   userInfoModel
-    .create(username, weight, height, calories, water, sleep)
+    .create(username, weight, height)
     .then((usersInfo) => {
       res.json(usersInfo);
     })

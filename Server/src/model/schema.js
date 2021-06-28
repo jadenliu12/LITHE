@@ -14,9 +14,9 @@ const schemaSql = `
       username   VARCHAR ( 50 ) PRIMARY KEY NOT NULL,
       weight     INT NOT NULL,
       height     INT NOT NULL,
-      calories   INT,
-      water      INT,
-      sleep      INT      
+      calories   integer NOT NULL DEFAULT 0,
+      water      integer NOT NULL DEFAULT 0,
+      sleep      integer NOT NULL DEFAULT 0
     );
 
     CREATE TABLE usersavatar (

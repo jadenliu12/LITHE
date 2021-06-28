@@ -14,13 +14,13 @@ if (!global.db) {
     return db.any(sql);
   }
   
-  function create(username, weight, height, calories, water, sleep) {
+  function create(username, weight, height) {
     const sql = `
           INSERT INTO usersinfo ($<this:name>)
-          VALUES ($<username>, $<weight>, $<height>, $<calories>, $<water>, $<sleep>)
+          VALUES ($<username>, $<weight>, $<height>)
           RETURNING *
       `;
-    return db.one(sql, { username, weight, height, calories, water, sleep });
+    return db.one(sql, { username, weight, height});
   }
   
   module.exports = {

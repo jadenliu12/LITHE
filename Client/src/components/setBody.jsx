@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
 
-import {signedIn} from 'states/auth-actions.js';
+import {signIn} from 'states/auth-actions.js';
 import {onChange} from 'states/userInfo-actions.js';
 
 import {createUserInfo, listUserInfo} from 'api/userInfo.js';
@@ -66,8 +66,8 @@ class SetBody extends React.Component {
     }
 
     signIn() {
-        this.props.dispatch(signedIn());
-        createUserInfo(this.props.username, this.props.weight, this.props.height, 0, 0, 0)
+        this.props.dispatch(signIn());
+        createUserInfo(this.props.username, this.props.weight, this.props.height)
         .then(() => {
             listUserInfo()
                 .then((usersInfo) => {

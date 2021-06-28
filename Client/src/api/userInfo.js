@@ -17,20 +17,17 @@ export function listUserInfo() {
 }
 
 
-export function createUserInfo(username, weight, height, calories, water, sleep) {
+export function createUserInfo(username, weight, height) {
   let url = `${userInfoBaseUrl}/usersInfo`;
 
   console.log(`Making POST request to: ${url}`);
-  console.log(username, weight, height, calories, water, sleep)
+  console.log(username, weight, height)
 
   return axios
     .post(url, {
       username,
       weight,
-      height,
-      calories,
-      water,
-      sleep
+      height
     })
     .then(function (res) {
       if (res.status !== 200)
