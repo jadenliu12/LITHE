@@ -2,6 +2,8 @@ require('../config.js');
 const express = require('express');
 
 const userRouter = require('./routers/users.js');
+const userInfoRouter = require('./routers/usersInfo.js');
+const userAvatarRouter = require('./routers/usersAvatar.js');
 const requestLogger = require('./middleware/request-logger.js');
 const accessController = require('./middleware/access-controller.js');
 const errorHandler = require('./middleware/error-handler.js');
@@ -18,6 +20,8 @@ app.use(
 );
 app.use(accessController);
 app.use('/api', userRouter);
+app.use('/api', userInfoRouter);
+app.use('/api', userAvatarRouter);
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);
 

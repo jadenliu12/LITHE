@@ -44,7 +44,13 @@ export function auth(state = initAuthState, action) {
             return {
                 ...state,
                 formType: 'confirmSignUp'
-            };         
+            }; 
+        case '@AUTH/AVATAR_GENERATOR':
+            return {
+                ...state,
+                formType: 'avatarGenerator'
+            };  
+                                
         case '@AUTH/FORGOT_PASS':
             return {
                 ...state,

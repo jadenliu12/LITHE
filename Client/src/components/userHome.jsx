@@ -46,10 +46,6 @@ class UserHome extends React.Component {
                     <div className="inputInfo">
                         <h3 className="today">YOUR DAILY RECORD</h3>
                         <div>
-                            <form onClick={this.handleCalorieToggle} >
-                                <label htmlFor="calories">Calorie Intake</label>
-                                <input className="inputRecords" type="text" />
-                            </form>
                             <form >
                                 <label htmlFor="calories">Calorie Intake | <span><Link to="/user-search-food">Food Calorie Counter</Link> </span></label>
                                 <input className="inputRecords" id="calInput" type="number"></input>
@@ -82,7 +78,7 @@ class UserHome extends React.Component {
                                     <SleepBarChart />
                                 </div>                                    
                             </form>
-                            <button className="button" onClick={this.checkInput}>Input</button>                            
+                            <button className="button" onClick={this.checkInput}>Input</button>                                                        
                         </div>
                     </div>
                 </div> 

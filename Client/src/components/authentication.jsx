@@ -10,8 +10,9 @@ import {
 } from "reactstrap";
 import {connect} from 'react-redux';
 
+import AvatarGenerator from 'components/generateAvatar.jsx';
 import UserHome from 'components/userHome.jsx';
-import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot} from 'states/auth-actions.js';
+import {onChange, checkUser, signedIn, signIn, signUp, confirmSignUp, forgotPassword, confirmForgot, avatarGenerator} from 'states/auth-actions.js';
 import {updateWarningUsername, updateWarningPassword, updateWarningConfirmPassword, updateWarningEmail, updateWarningMessage} from 'states/auth-actions.js';
 
 import {createUser, listUser} from 'api/user.js';
@@ -19,7 +20,6 @@ import {createUser, listUser} from 'api/user.js';
 import { Auth } from 'aws-amplify';
 
 import './authentication.css';
-import { combineReducers } from 'redux';
 
 class Authentication extends React.Component {
     static propTypes = {    
@@ -227,12 +227,19 @@ class Authentication extends React.Component {
                     )
                 }                    
                 {
+                    this.props.formType === 'avatarGeneration' && (
+                        <div className="form-container">
+                            <AvatarGenerator />                            
+                        </div>
+                    )
+                } 
+                {
                     this.props.formType === 'signedIn' && (
                         <div className="form-container">
                             <UserHome />                            
                         </div>
                     )
-                }                             
+                }                                            
             </div>
         )
     }
@@ -308,7 +315,7 @@ class Authentication extends React.Component {
     }
 
     confirmSignUp() {        
-        Auth.confirmSignUp(this.props.username, this.props.authCode).then(this.props.dispatch(signIn()));        
+        Auth.confirmSignUp(this.props.username, this.props.authCode).then(this.props.dispatch(avatarGenerator()));        
     }    
 
     signUp() {

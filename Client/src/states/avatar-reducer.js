@@ -2,7 +2,8 @@ const initAvatarState = {
     avatarHair: 'images/hair1.png',
     avatarEye: 'images/eye1.png',
     avatarNose: 'images/nose1.png',
-    avatarMouth: 'images/mouth1.png'
+    avatarMouth: 'images/mouth1.png',
+    avatarBodySource: 'images/woman1.png'
 };
 
 export function avatar(state = initAvatarState, action) {
@@ -12,10 +13,10 @@ export function avatar(state = initAvatarState, action) {
                 ...state,
                 avatarHair: "images/hair" + action.hairNum + ".png"
             };         
-        case '@AVATAR/CHANGE_AVATAR_EYES':
+        case '@AVATAR/CHANGE_AVATAR_EYES':            
             return {
                 ...state,
-                avatarEyes: "images/eye" + action.eyeNum + ".png"
+                avatarEye: "images/eye" + action.eyeNum + ".png"
             };    
         case '@AVATAR/CHANGE_AVATAR_NOSE':
             return {
@@ -27,6 +28,16 @@ export function avatar(state = initAvatarState, action) {
                 ...state,
                 avatarMouth: "images/mouth" + action.mouthNum + ".png"
             };     
+        case '@AVATAR/CHANGE_AVATAR_BODY_WOMAN':
+            return {
+                ...state,
+                avatarBodySource: "images/woman" + action.womanBodyNumber + ".png"
+            };  
+        case '@AVATAR/CHANGE_AVATAR_BODY_MAN':
+            return {
+                ...state,
+                avatarBodySource: "images/man" + action.manBodyNumber + ".png"
+            };              
         default:
             return state;
     }

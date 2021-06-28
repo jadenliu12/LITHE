@@ -22,7 +22,6 @@ import UserSearchFood from 'components/userSearchFood.jsx';
 import Statistics from 'components/statistics.jsx';
 import Group from 'components/group.jsx';
 import Competition from 'components/Competition.jsx';
-
 import AvatarGenerator from 'components/generateAvatar.jsx'
 import SetBody from 'components/setBody.jsx'
 
@@ -185,7 +184,21 @@ class Main extends React.Component {
             render={() => (
               <Statistics/>
             )}
-          />                                        
+          /> 
+          <Route
+            exact
+            path="/avatar-generator"
+            render={() => (
+              <AvatarGenerator/>
+            )}
+          /> 
+          <Route
+            exact
+            path="/set-body"
+            render={() => (
+              <SetBody/>
+            )}
+          />                                                            
         </div>
       </Router>
     );

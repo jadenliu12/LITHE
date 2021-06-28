@@ -67,11 +67,28 @@
     position: absolute;
 }
 
+.generateBody .inputBody {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.generateBody .inputBox {
+    display: inline-block;
+}
+
 .generateBody .inputWeight {
+    display: block;
+    margin: 1rem;
+}
+
+.generateBody .inputHeight {
+    display: block;
     margin: 1rem;
 }
 
 .generateBody .maleButton {
+    display: inline-block;
     width: 7rem;
     height: 3rem;
     margin: 1rem;
