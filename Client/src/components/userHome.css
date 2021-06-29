@@ -1,3 +1,7 @@
+.userHome {
+    margin-top: 4rem;
+}
+
 .userHome .body {
     background-color: #abe1ff;
     display: inline-block;
@@ -52,7 +56,11 @@
 }
 
 .userHome .button {
+<<<<<<< HEAD
     background-color: #7a6941;
+=======
+    background-color: #47525E;
+>>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd
     border: none;
     border-radius: 0.5rem;
     color: white;
@@ -65,6 +73,7 @@
     cursor: pointer;
   }
 
+<<<<<<< HEAD
 .userHome .icon {
     display: inline-block;
 }
@@ -115,3 +124,10 @@
     max-width: 150px;
     position: absolute;
 }
+=======
+.userHome .button:hover {
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
+}
+>>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd

@@ -75,8 +75,13 @@ class Authentication extends React.Component {
                     this.props.formType === 'signIn' && (
                         <div className="form-container">
                             <Form className="sign-form">
+<<<<<<< HEAD
                                 <h1 className="text-info">Lithe.</h1>
                                 <h3 className="text-center">Welcome!</h3>
+=======
+                                <h1 className="text-info">Lithe</h1>
+                                <h3 className="text-center">Welcome</h3>
+>>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd
                                 <FormGroup className="form-component">
                                     <Label>Username:</Label>
                                     <Input name="username" onChange={e => this.onChange(e)} placeholder="Username" />

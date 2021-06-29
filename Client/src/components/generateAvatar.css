@@ -97,25 +97,27 @@
     height: 3rem;
     margin: 1rem;
     border-radius: 2rem;
-    background-color: #9fdbf5;
+    border-color: #8492A6;
+    background-color: #Bac6c6;
     font-size: 1.5rem;
 }
 
-.generateAvatar .femaleButton {
-    width: 7rem;
-    height: 3rem;
-    margin: 1rem;
-    border-radius: 2rem;
-    background-color: #e374b5;
-    font-size: 1.5rem;
-}
-
-.generateAvatar .submitButton {    
+.generateAvatar .submitButton {
     width: 10rem;
-    height: 3rem;
+    height: 4rem;
     margin: 1rem;
-    border-radius: 2rem;
-    background-color: #a8966a;
+    border-radius: 1rem;
+    border-color: black;
+    border-width: 0.01rem;
+    background-color: rgba(213,90,57);
     font-size: 1.5rem;
-    color: #000000;
+    font-weight: 600;
+    color: white;
+}
+
+.generateAvatar .generateButton:hover,
+.generateAvatar .submitButton:hover{
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
 }

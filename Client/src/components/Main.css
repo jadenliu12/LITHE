@@ -3,12 +3,40 @@
     background-color: #abe1ff;
 }
 
+<<<<<<< HEAD
 .main .text-info {
     color: rgba(255, 255, 255);
 }
 
 .navbar-default .navbar-brand {
     color: #d6d6d6;
+=======
+.main .navbar-brand {
+    font-size: 1.5rem;
+}
+
+
+.main .nav-link:hover{
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+}
+
+.main .nav-link {
+    margin: 0.1rem;
+}
+
+.main .nav-link:focus{
+    color: white !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem;
+}
+
+.main .signOutButton:hover {
+    opacity: 0.6;
+    transform: scale(0.9);
+    transition-duration: 0.5s;
+>>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd
 }
 
 .left-nav {

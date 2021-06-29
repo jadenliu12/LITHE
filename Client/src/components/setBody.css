@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     object-fit: fill;
-    background-color: #abe1ff;
+    background-color: rgba(132, 146, 166, 0.5);
     border: solid;
     border-color: black;
     border-width: 5px;
@@ -88,20 +88,33 @@
 .generateBody .inputWeight {
     display: block;
     margin: 1rem;
-    background-color: #fcf5d9;
+    border-radius: 2rem;
+    background-color: rgba(140,193,193,255);
+    font-size: 1.5rem;
 }
 
 .generateBody .inputHeight {
     display: block;
     margin: 1rem;
-    background-color: #fcf5d9;
+    border-radius: 2rem;
+    background-color: rgba(213,90,57,255)
+    ;
+    font-size: 1.5rem;
 }
 
 .generateBody .submitButton {
-    width: 20rem;
-    height: 5rem;
+    width: 6rem;
+    height: 3.5rem;
     margin: 1rem;
     border-radius: 1rem;
-    background-color: #a8966a;
+    /* background-color: rgba(132, 146, 166, 0.7); */
     font-size: 1.5rem;
+}
+
+.generateBody .submitButton:hover,
+.generateBody .femaleButton:hover,
+.generateBody .maleButton:hover {
+    opacity: 0.6;
+    transform: scale(0.8);
+    transition-duration: 0.5s;
 }

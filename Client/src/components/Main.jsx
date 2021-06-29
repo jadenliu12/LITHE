@@ -62,8 +62,8 @@ class Main extends React.Component {
           <div className="container">
             <Navbar color="faded" light expand="md">
               <NavbarToggler onClick={this.handleNavbarToggle} />
-              <NavbarBrand className="text-info" href={this.props.status ? "/user-home" : "/"}>
-                LITHE
+              <NavbarBrand className="text-info display-3" href={this.props.status ? "/user-home" : "/"}>
+                Lithe
               </NavbarBrand>
               <Collapse className={this.props.status ? "" : "justify-content-end"} isOpen={this.props.navbarToggle} navbar>       
                 <Nav navbar>
