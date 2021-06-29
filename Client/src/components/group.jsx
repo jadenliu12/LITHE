@@ -30,29 +30,29 @@ export default class Group extends React.Component {
                 <div className="users">
                     <div className="datas">
                         <div className="row">
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
+                            <div className="col-sm"><img src="images/avatar2.png"></img></div>
+                            <div className="col-sm"><img src="images/avatar1.png"></img></div>
+                            <div className="col-sm"><img src="images/avatar3.png"></img></div>
+                            <div className="col-sm"><img src="images/avatar4.png"></img></div>
                         </div>
                         <div className="row">
-                            <p className="col-sm">user1</p>
-                            <p className="col-sm">user2</p>
-                            <p className="col-sm">user3</p>
-                            <p className="col-sm">user4</p>
+                            <p className="col-sm">Jaden</p>
+                            <p className="col-sm">Michelle</p>
+                            <p className="col-sm">admin</p>
+                            <p className="col-sm">anoy</p>
                         </div>
                         <div className="row">
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
-                            <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
+                            <div className="col-sm"><img src="images/avatar5.png"></img></div>
+                            <div className="col-sm"><img src="images/avatar6.png"></img></div>
                             <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
                             <div className="col-sm"><i className="fas fa-plus-circle fa-3x"></i></div>
                         </div>
                         
                         <div className="row">
-                            <p className="col-sm">user5</p>
-                            <p className="col-sm">user6</p>
-                            <p className="col-sm">user7</p>
-                            <p className="col-sm">user8</p>
+                            <p className="col-sm">anoy1</p>
+                            <p className="col-sm">anoy2</p>
+                            <p className="col-sm"></p>
+                            <p className="col-sm"></p>
                         </div>
                     </div>
                 </div>
