@@ -1,0 +1,78 @@
+.friend { 
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.friend .canvas {
+    width: 13rem;
+    height: 13rem;
+    border: solid;
+    margin-left: 10px;
+    border-color: black;
+    background-color: #fff4db;
+    display: inline-block;
+}
+  
+.friend .hair {
+    margin-left: -2rem;
+    margin-right: auto;
+    position: absolute;
+    max-width: 250px;
+    object-fit: cover;
+}
+
+.friend .eye {
+    margin-left: 65px;
+    margin-top: 100px;
+    max-width: 70px;
+    position: absolute;
+}
+
+.friend .nose {
+    margin-left: 90px;
+    margin-right: auto;
+    margin-top: 130px;
+    max-width: 20px;
+    position: absolute;
+}
+
+.friend .mouth {
+    margin-left: 70px;
+    margin-right: auto;
+    margin-top: 140px;
+    max-width: 65px;
+    position: absolute;
+}
+
+.friend .userData {
+    margin-left: 1rem;
+    margin-right: 5rem;
+    font-size: 1.5rem;
+    height: 100%;
+    display: inline-block;
+}
+
+.infoContainer {
+    display: inline-block;
+}
+
+.userHeight {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.userWeight {
+    display: inline-block;
+}
+
+.friend .addFriend {
+    width: 10rem;
+    height: 3rem;
+    display: block;
+    border-radius: 2rem;
+    border-color: black;
+    background-color: #cfbc8f;
+    color: white;
+    font-size: 20px;
+}

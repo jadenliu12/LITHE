@@ -1,32 +1,15 @@
+.friendSuggestion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .friendSuggestion .friend {
-    margin-top: 3rem;
-    margin-bottom: 5rem;
-    margin-left: 10rem;
+    border: none;
+    margin: 0 auto;
+    background-color: #abe1ff;
 }
 
-.friendSuggestion .canvas {
-    width: 13rem;
-    height: 13rem;
-    border: solid;
-    border-color: black;
-    background-color: #fff4db;
-    display: inline-block;
-}
-
-.friendSuggestion .userData {
-    margin-left: 1rem;
-    margin-right: 5rem;
-    font-size: 1.5rem;
-    display: inline-block;
-}
-
-.friendSuggestion .addFriend {
-    width: 10rem;
-    height: 2rem;
-    margin-left: 1.7rem;
-    display: block;
-    border-radius: 2rem;
-    border-color: black;
-    background-color: #cfbc8f;
-    color: white;
+.list-group {
+    display: inline !important; 
 }
