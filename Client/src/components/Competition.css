@@ -1,13 +1,25 @@
-.userImage {
-    height: 6rem;
-    width: 6rem;
-}
-
-.userPlace{
-    height: 3rem;
-    width: 3rem;   
-}
-
-.Place {
+.competition h1 {
     text-align: center;
+    margin-bottom: 2rem;
+}
+
+.competition .viewRewards {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    margin-bottom: 2rem;
+}
+
+.competition button {
+    border-radius: 2rem;
+    background-color: #fcf4de;
+    width: 7rem;
+    height: 3rem;
+}
+.competition .userdata {
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
 }
