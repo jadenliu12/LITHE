@@ -14,11 +14,18 @@
 }
 
 .aboutUs .row > div {
-    background-color: lightblue;
+    background-color: #fff4db;
     max-width: 11rem;
     height: 15rem;
     margin-left: 3rem;
     margin-right: 3rem;
+    display: grid;
+    align-items: center;
+}
+.aboutUs img {
+    background-color: #fff4db;
+    max-width: 150px;
+    height: auto;
     display: grid;
     align-items: center;
 }
