@@ -30,7 +30,7 @@ const schemaSql = `
     );
 
     CREATE TABLE usergroup (
-      group_id   PRIMARY KEY NOT NULL,
+      group_id   INT PRIMARY KEY NOT NULL,
       user_a     VARCHAR ( 50 ) DEFAULT NULL,
       user_b     VARCHAR ( 50 ) DEFAULT NULL,
       user_c     VARCHAR ( 50 ) DEFAULT NULL,
