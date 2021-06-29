@@ -272,7 +272,7 @@ class Authentication extends React.Component {
     checkUser() {          
         Auth.currentAuthenticatedUser()
             .then((user) => {  
-                this.props.dispatch(checkUser(user.attributes.email, user.email));
+                this.props.dispatch(checkUser(user.attributes.email, user.username));
             })
             .catch(user => this.props.dispatch(signIn()));
     }

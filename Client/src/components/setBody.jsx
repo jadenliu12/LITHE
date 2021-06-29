@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
 import {changeWomanBody, changeManBody, deleteWomanBody, deleteManBody} from 'states/avatar-actions.js';
+import {createUserAvatar, listUserAvatar} from 'api/userAvatar.js';
 
 
 import {signIn} from 'states/auth-actions.js';
@@ -31,6 +32,8 @@ class SetBody extends React.Component {
         super(props);
         this.avatarBodyNum = 1;
         this.userBMI = 0;
+        this.height = 0;
+        this.weight = 0;
 
         this.setBody = this.setBody.bind(this);
 
@@ -55,7 +58,7 @@ class SetBody extends React.Component {
 
         else if(this.props.avatarManBodySource === "") {
             this.userBMI = ((this.weight) / (((this.height)/100)*((this.height)/100)));
-            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI <= 29.9) ? 3 : 4);
+            this.avatarBodyNum = (this.userBMI < 18.5 ? 1 : (18.5 <= this.userBMI && this.userBMI <= 24.9) ? 2 : (25 <= this.userBMI && this.userBMI <= 29.9) ? 3 : 4);
             this.props.dispatch(changeWomanBody(this.avatarBodyNum));
         }
     }
@@ -76,7 +79,7 @@ class SetBody extends React.Component {
                         <input className="inputHeight" type="number" placeholder="Height (cm)" name="height" onChange={e => this.onChange(e)}></input>
                         <input className="inputWeight" type="number" placeholder="Weight (kg)" name="weight" onChange={e => this.onChange(e)}></input>
                     </div>
-                    <button className="submitButton" onClick={this.signIn}><Link to="/user-home">Confirm</Link></button>
+                    <button className="submitButton" onClick={this.signIn}><Link to="/sign-in">Confirm</Link></button>
                 </div>
             </div>
         );
@@ -85,6 +88,13 @@ class SetBody extends React.Component {
     onChange(e) {
         e.persist();        
         this.props.dispatch(onChange(e.target.name, Number(e.target.value)));
+        if(e.target.name === "height") this.height = Number(e.target.value);
+        else this.weight = Number(e.target.value);
+
+        if(this.height >= 100 && this.weight > 0) {
+            console.log("set body!");
+            this.setBody();
+        }
     }
 
     signIn() {
@@ -101,7 +111,20 @@ class SetBody extends React.Component {
         })
         .catch((err) => {
             console.error('Error creating user', err);
-        })        
+        })    
+        createUserAvatar(this.props.username, this.props.avatarHair, this.props.avatarEye, this.props.avatarNose, this.props.avatarMouth, this.props.gender ? this.props.avatarWomanBodySource : this.props.avatarManBodySource, this.props.gender)            
+            .then(() => {
+                listUserAvatar()
+                    .then((usersAvatar) => {
+                        console.log(usersAvatar);
+                    })
+                    .catch((err) => {
+                        console.error('Error listing users avatar', err);
+                    })
+            })
+            .catch((err) => {
+                console.error('Error creating users avatar', err);
+            })             
     }
 }
 

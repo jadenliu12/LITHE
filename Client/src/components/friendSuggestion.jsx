@@ -1,102 +1,116 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 import PropTypes, { bool } from 'prop-types';
 import {connect} from 'react-redux';
+
+import {setAvailableUsers, setAvailableUsersInfo, setAvailableUsersAvatar, setCurrentUser} from 'states/friend-actions.js';
+import {listUser} from 'api/user.js';
+import {listUserInfo} from 'api/userInfo.js';
+import {listUserAvatar} from 'api/userAvatar.js';
+
+import FriendBox from 'components/friendBox.jsx';
 
 import './friendSuggestion.css';
 
 class FriendSuggestion extends React.Component {
+    static propTypes = {    
+        availableUsers: PropTypes.array,
+        availableUsersInfo: PropTypes.array,
+        availableUsersAvatar: PropTypes.array,
+        usersFriend: PropTypes.array,
+        username: PropTypes.string,
+        currentUser: PropTypes.string,
+        store: PropTypes.object,
+        dispatch: PropTypes.func
+      };    
+
     constructor(props) {
         super(props);
+        this.state = {
+            loading: true,
+        }
+        this.users = []
+        this.usersInfo = [];
+        this.userAvatar = [];
     }   
 
     componentDidMount() {
-        console.log('Mount Friend Suggestion');
+        console.log('Mount Friend Suggestion'); 
+        this.props.dispatch(setCurrentUser(this.props.username))           
+        listUser()
+        .then((users) => { 
+            for (var i=0; i < users.length; i++) {
+                console.log(users[i].username, this.props.currentUser)
+                if(users[i].username !== this.props.currentUser)
+                    this.users.push(users[i].username);
+            }            
+            this.props.dispatch(setAvailableUsers(this.users));            
+            listUserInfo()   
+            .then((usersInfo) => {
+                for (var i=0; i < usersInfo.length; i++) {
+                    if(usersInfo[i].username !== this.props.currentUser)
+                        this.usersInfo.push({height: usersInfo[i].height, weight: usersInfo[i].weight});
+                } 
+                this.props.dispatch(setAvailableUsersInfo(this.usersInfo));       
+                listUserAvatar()
+                .then((userAvatar) => {                    
+                    for (var i=0; i < userAvatar.length; i++) {
+                        if(userAvatar[i].username !== this.props.currentUser)
+                            this.userAvatar.push({hair: userAvatar[i].hair, eye: userAvatar[i].eye, nose: userAvatar[i].nose, mouth: userAvatar[i].mouth});
+                    }   
+                    this.props.dispatch(setAvailableUsersAvatar(this.userAvatar));            
+                }) 
+                .then(() => {
+                    this.setState({loading: false});
+                })
+                .catch((err) => {
+                    console.error('Error listing avatars', err);
+                })                      
+            })
+            .catch((err) => {
+                console.error('Error listing users', err);
+            }); 
+        })
+        .catch((err) => {
+            console.error('Error listing users', err);
+        });       
     }
 
     componentWillUnmount() {
         console.log('Unmount Friend Suggestion')
     }
 
-    render() {
+    render() {        
+        let children = (
+            <ListGroupItem className="empty d-flex justify-content-center align-items-center">
+              <div className="empty-text">
+                Please wait a moment...
+              </div>
+            </ListGroupItem>
+        );
+        if(!this.state.loading) {            
+            children = this.props.availableUsers.map((name, index) => (     
+                <ListGroupItem key={name} className="friend">
+                    <FriendBox 
+                        username={name} 
+                        height={this.props.availableUsersInfo[index].height} 
+                        weight={this.props.availableUsersInfo[index].weight} 
+                        hair={this.props.availableUsersAvatar[index].hair}
+                        eye={this.props.availableUsersAvatar[index].eye}
+                        nose={this.props.availableUsersAvatar[index].nose}
+                        mouth={this.props.availableUsersAvatar[index].mouth}
+                    />
+                </ListGroupItem>       
+            )); 
+            console.log(this.users) ;
+        }     
+
         return (
             <div className="friendSuggestion">
-                <div className="d-flex flex-lg-row flex-column m-10">
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userWeight">Weight</div>
-                                <div className="userHeight">Height</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>    
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>   
-                </div>        
-                <div className="d-flex flex-lg-row flex-column m-10">
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>    
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>   
-                </div>        
-                     
-                <div className="d-flex flex-lg-row flex-column m-10">
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>    
-                    <div className="friend">
-                        <div className="canvasContainer">
-                            <div className="canvas"></div>
-                            <div className="userData">
-                                <div className="userName">Name</div>
-                                <div className="userHeight">Height</div>
-                                <div className="userWeight">Weight</div>
-                            </div>
-                        </div>
-                        <button className="addFriend"><Link to="/friend-profile">View Profile</Link></button>
-                    </div>   
-                </div>        
+                <ListGroup>
+                    {children}
+                </ListGroup>                
             </div>
         );
     }
@@ -104,6 +118,6 @@ class FriendSuggestion extends React.Component {
 }
 
 export default connect(state => ({
-    ...state.avatar,
+    ...state.friends,
     username: state.auth.username
-}))(FriendSuggestion);
+  }))(FriendSuggestion);

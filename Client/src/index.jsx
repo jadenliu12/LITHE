@@ -10,6 +10,7 @@ import {calProgress, sleepProgress, waterProgress} from 'states/userHome-reducer
 import {main} from 'states/main-reducers.js';
 import {avatar} from 'states/avatar-reducers.js';
 import {userInfo} from 'states/userInfo-reducers.js';
+import {friends} from 'states/friend-reducers.js';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -26,6 +27,7 @@ window.onload = function () {
     main,
     avatar,
     userInfo,
+    friends,
   }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
 
   ReactDOM.render(
