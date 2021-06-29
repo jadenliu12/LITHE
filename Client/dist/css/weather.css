@@ -4,13 +4,9 @@ html {
 
 html, body, #root {
     min-height: 100%;
-<<<<<<< HEAD
-    background-color: #abe1ff;
-=======
     background-color: #F2F1E5;
     font-family: "Dax Regular";
     font-weight: 400;
->>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd
 }
 
 .weather-bg {
