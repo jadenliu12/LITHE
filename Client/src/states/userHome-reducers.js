@@ -174,11 +174,7 @@ const initWaterState = {
             label: 'ml',
             data: [0, 2000],
             backgroundColor: [
-<<<<<<< HEAD
-              'rgba(255, 255, 255, 0.5)',
-=======
               'rgba(132, 146, 166, 0.5)',
->>>>>>> 7388511755242bf1bbf02a4eab067a62ee61e1fd
             ],
             borderColor: [
               'rgba(255, 255, 255, 1)',
