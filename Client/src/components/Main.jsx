@@ -21,7 +21,8 @@ import UserHome from 'components/userHome.jsx';
 import UserSearchFood from 'components/userSearchFood.jsx';
 import Statistics from 'components/statistics.jsx';
 import Group from 'components/group.jsx';
-import Competition from 'components/Competition.jsx';
+import Competition from 'components/competition.jsx';
+import CompetitionReward from 'components/competitionReward.jsx';
 import AvatarGenerator from 'components/generateAvatar.jsx';
 import SetBody from 'components/setBody.jsx';
 import FriendSuggestion from 'components/friendSuggestion.jsx';
@@ -170,6 +171,13 @@ class Main extends React.Component {
             path="/competition"
             render={() => (
               <Competition/>
+            )}
+          /> 
+          <Route
+            exact
+            path="/competition-reward"
+            render={() => (
+              <CompetitionReward/>
             )}
           /> 
           <Route

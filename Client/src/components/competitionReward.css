@@ -1,0 +1,13 @@
+.competitionReward .userImage {
+    height: 6rem;
+    width: 6rem;
+}
+
+.competitionReward .userPlace{
+    height: 3rem;
+    width: 3rem;   
+}
+
+.competitionReward .Place {
+    text-align: center;
+}

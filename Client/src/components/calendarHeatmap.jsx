@@ -20,10 +20,34 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max-min+1)) + min;
 }
 
+function getPercentage(index) {
+    var percentage = 0;
+    if(index === 0) {
+        percentage = getRandomInt(0, 20);
+        return "Today's achievement is " + percentage + "%.";
+    }
+    else if(index === 1) {
+        percentage = getRandomInt(21, 40);
+        return "Today's achievement is " + percentage + "%.";
+    }
+    else if(index === 2) {
+        percentage = getRandomInt(41, 60);
+        return "Today's achievement is " + percentage + "%.";
+    }
+    else if(index === 3) {
+        percentage = getRandomInt(61, 80);
+        return "Today's achievement is " + percentage + "%.";
+    }
+    else if(index === 4) {
+        percentage = getRandomInt(81, 100);
+        return "Today's achievement is " + percentage + "%.";
+    }
+}
+
 const randomValues = getRange(200).map(index => {
     return {
       date: shiftDate(today, -index),
-      count: getRandomInt(1, 3),
+      count: getRandomInt(0, 4),
     };
   });
 
@@ -47,8 +71,7 @@ const CalendarHeatMap = () => (
             };
         }}
         showWeekdayLabels={true}
-        // weekdayLabels={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
-        onClick={value => alert(`${value.date}`)}
+        onClick={value => alert(`${value.date}\n${getPercentage(value.count)}`)}
     />
   </>
 );

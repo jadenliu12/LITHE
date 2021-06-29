@@ -6,11 +6,11 @@ import './horizontalChart.css';
 defaults.animation = false;
 
 const data = {
-  labels: ['anoy', 'Jaden', 'admin', 'anoy1', 'anoy2', 'Michelle'],
+  labels: ['Jaden', 'Michelle', 'admin'],
   datasets: [
     {
       label: 'days',
-      data: [3, 7, 5, 2, 3, 6],
+      data: [7, 6, 5],
       backgroundColor: [
         'rgba(150, 45, 45, 0.5)',
       ],
@@ -35,15 +35,15 @@ const options = {
   maintainAspectRatio: false
 };
 
-const GameBarChart = () => (
+const RewardChart = () => (
   <>
     <Bar data={data} 
         className="bar" 
         width={1000}
-        height={700}
+        height={300}
         options={options} 
     />
   </>
 );
 
-export default GameBarChart;
+export default RewardChart;
