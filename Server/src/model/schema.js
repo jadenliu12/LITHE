@@ -29,11 +29,17 @@ const schemaSql = `
       gender     BOOLEAN NOT NULL DEFAULT FALSE   
     );
 
-    CREATE TABLE friends (
-      firends_id INT PRIMARY KEY NOT NULL,
-      user_a     VARCHAR ( 50 ) NOT NULL,
-      user_b     VARCHAR ( 50 ) NOT NULL
-    );    
+    CREATE TABLE usergroup (
+      group_id   PRIMARY KEY NOT NULL,
+      user_a     VARCHAR ( 50 ) DEFAULT NULL,
+      user_b     VARCHAR ( 50 ) DEFAULT NULL,
+      user_c     VARCHAR ( 50 ) DEFAULT NULL,
+      user_d     VARCHAR ( 50 ) DEFAULT NULL,
+      user_e     VARCHAR ( 50 ) DEFAULT NULL,
+      user_f     VARCHAR ( 50 ) DEFAULT NULL,
+      user_g     VARCHAR ( 50 ) DEFAULT NULL,
+      user_h     VARCHAR ( 50 ) DEFAULT NULL
+    );
 `;
 
 const dataSql = `

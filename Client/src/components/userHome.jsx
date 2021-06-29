@@ -89,7 +89,7 @@ class UserHome extends React.Component {
                         <h3 className="today">YOUR DAILY RECORD</h3>
                         <div>
                             <form >
-                                <label htmlFor="calories">Calorie Intake | <span><Link to="/user-search-food">Food Calorie Counter</Link> </span></label>
+                                <label htmlFor="calories">Calorie Intake</label>
                                 <input className="inputRecords" id="calInput" type="number"></input>
                                 <select name="unitCal" className="unitChoices" defaultValue="KCal" onClick={this.changeUnitCal}>
                                     <option value="KCal">KCal</option>

@@ -25,7 +25,7 @@ export default class FriendBox extends React.Component {
                             <div className="userHeight">{this.props.height}cm </div>
                             <div className="userWeight">{this.props.weight}kg </div>                            
                         </div>
-                        <button className="addFriend"><Link to="/friend-profile">Add to Group</Link></button>
+                        <button className="addFriend">Add to Group</button>
                     </div>
                 </div>                
             </div>
